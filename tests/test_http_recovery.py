@@ -60,12 +60,28 @@ def test_concurrent_http_key_and_intent_binding(live_server):
                 range(1, 17),
             )
         )
-    assert all(result["status"] == 200 for result in results)
+    assert all(result.get("status") == 200 for result in results), results
     assert all(result["body"] == results[0]["body"] for result in results)
     assert len(sink.snapshot()["effects"]) == 1
     conflicting = scenario.request(1)
     conflicting["operation_id"] = "another-logical-operation"
     assert send_request(server.server_port, conflicting, 2)["status"] == 409
+    assert len(sink.snapshot()["effects"]) == 1
+
+
+def test_http_burst_does_not_outgrow_pending_accept_queue(live_server):
+    server, sink = live_server
+    assert server.request_queue_size == 64
+    scenario = HttpScenario("stable-key", 1, 0)
+    with ThreadPoolExecutor(max_workers=16) as pool:
+        results = list(
+            pool.map(
+                lambda attempt: send_request(server.server_port, scenario.request(1), attempt),
+                range(1, 33),
+            )
+        )
+    assert all(result.get("status") == 200 for result in results), results
+    assert all(result["body"] == results[0]["body"] for result in results)
     assert len(sink.snapshot()["effects"]) == 1
 
 

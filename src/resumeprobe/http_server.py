@@ -16,6 +16,12 @@ from resumeprobe.sink import EffectSink
 BODY_LIMIT = 8192
 
 
+class FixtureHTTPServer(ThreadingHTTPServer):
+    # Set before listen(), not after construction. This local fixture accepts bursts
+    # larger than older Python versions' default five-entry pending socket queue.
+    request_queue_size = 64
+
+
 def reject_constant(value: str):
     raise ValueError(f"non-finite JSON value: {value}")
 
@@ -104,7 +110,7 @@ def make_server(sink: EffectSink, *, drop_first: bool = True) -> ThreadingHTTPSe
                 sink.event("http_response_sent", attempt, result)
                 self.respond(200, result)
 
-    server = ThreadingHTTPServer(("127.0.0.1", 0), Handler)
+    server = FixtureHTTPServer(("127.0.0.1", 0), Handler)
     server.daemon_threads = True
     return server
 

@@ -110,7 +110,7 @@ fixture code, not the normal tool sink. This is process-death regression evidenc
 SQLite, not power-loss or distributed atomicity proof. See the
 [approved spec](docs/superpowers/specs/2026-10-09-sink-atomicity.md).
 
-Version 0.3 passed all 113 local tests, including real in-transaction process death and
+Version 0.3 passed all 114 local tests, including real in-transaction process death and
 explicit connection release after commit/rollback. See the
 [sink verification](docs/experiments/2026-10-09-sink-verification.md).
 
