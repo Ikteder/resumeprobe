@@ -49,3 +49,11 @@ regeneration, README style, and Git whitespace passed. Public CI recorded after 
 
 No sudden power loss, damaged journal, VFS faults, server cluster, remote transactional
 resource, independently authored dataset, or distributed exactly-once guarantee tested.
+
+Publication verified: source c6bd70d, workflow56b2634. Expanded public CI38014892588
+failed one Ubuntu Python3.12 concurrent HTTP assertion; the other five jobs passed.
+See ../notes/2026-10-09-ci-burst.md for the bounded accept-queue correction and retained
+uncertainty. Corrected main2c57645e39291e921cb5f1293eedb4af8e9b19de, 114 local tests,
+[CI38015371793](https://github.com/Ikteder/resumeprobe/actions/runs/38015371793) passed
+all six Ubuntu/Windows Python3.11/3.12/3.14 jobs, including original recovery, HTTP,
+sink conformance and package build. No original failing run described as successful.
