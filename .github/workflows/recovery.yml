@@ -20,4 +20,5 @@ jobs:
       - run: python -m ruff check src tests
       - run: python -m pytest -q
       - run: python -m resumeprobe run --adapters reference langgraph --repetitions 1 --output artifacts/ci
+      - run: python -m resumeprobe http-run --repetitions 1 --output artifacts/http-ci
       - run: python -m build
