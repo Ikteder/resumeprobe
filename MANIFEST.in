@@ -1,0 +1,3 @@
+recursive-include docs *.md *.json *.svg *.yml
+recursive-include scripts *.py
+include CONTRIBUTING.md

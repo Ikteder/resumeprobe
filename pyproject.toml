@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=83", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "resumeprobe"
+version = "0.1.0"
+description = "Process-crash experiments and effect reconciliation for durable AI workflows."
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+authors = [{name = "Ikteder"}]
+dependencies = []
+
+[project.optional-dependencies]
+langgraph = ["langgraph==1.2.14", "langgraph-checkpoint-sqlite==3.1.1"]
+dev = ["pytest>=8.4,<10", "ruff>=0.13,<1", "build>=1.3,<2", "pip-audit>=2.9,<3"]
+
+[project.scripts]
+resumeprobe = "resumeprobe.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
