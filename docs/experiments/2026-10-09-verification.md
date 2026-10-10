@@ -63,7 +63,10 @@ immutable payload and effect. No paid provider was called; actual cost USD 0.00.
 ## Boundaries
 
 No remote service, distributed store, machine power loss, live model, independently
-authored corpus, or LangGraph 8039 scheduler-race reproduction is claimed. GitHub workflow
-write scope is absent in the saved credential (`gist, read:org, repo`). A reviewed CI
-file is preserved at `docs/ci/github-actions.yml`; public CI is pending authenticated
-publication through an existing browser session or a workflow-scoped credential.
+authored corpus, or LangGraph 8039 scheduler-race reproduction is claimed. The saved Git
+credential lacks workflow scope; the configured GitHub connector subsequently published
+the reviewed workflow without changing that credential. Source commit
+`def3d9e4f369f8361bcc0c6251f07d81d2c75eaa` and CI commit
+`3784f9e12ab30f2965ae313e335e281aa8643358` are public at
+https://github.com/Ikteder/resumeprobe. Run 38013469173 passed all six Ubuntu/Windows
+Python 3.11/3.12/3.14 jobs, including lint, tests, a 30-case matrix, and packaging.

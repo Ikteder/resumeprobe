@@ -6,6 +6,8 @@ engineers see when a successful resume silently repeats a write.
 
 ![Observed committed effects after a worker crashes before task result persistence](docs/assets/recovery-v1.svg)
 
+![HTTP response loss and explicitly pruned idempotency keys](docs/assets/http-replay-v1.svg)
+
 The first verified matrix ran 90 experiments: 78 safe cases, 12 duplicate-effect cases,
 zero inconclusive cases, and 90/90 expected outcomes. Every duplicate-effect case still
 completed successfully. The stable-key tool committed one effect in every tested cell.
@@ -50,6 +52,38 @@ The stable-key sink commits the key, payload digest, effect, and result in the s
 transaction. Conflicting reuse fails. A regenerated key demonstrates why simply having
 an idempotency-key parameter does not make recovery safe.
 
+## HTTP response-loss experiment
+
+Version 0.2 adds a separate loopback tool-server process. It commits the first request,
+closes the socket before sending a response, and lets a fresh client process retry.
+No externally supplied URL or production endpoint is accepted.
+
+```bash
+resumeprobe http-run --seed 20261009 --repetitions 3 --output artifacts/http-1
+resumeprobe http-audit artifacts/http-1/report.json
+```
+
+| Retry policy | Effects across three repetitions | Retry response | Contract |
+|---|---|---|---|
+| No key | 2, 2, 2 | 200 | Duplicate |
+| Same retained key | 1, 1, 1 | 200 | Safe |
+| New key per attempt | 2, 2, 2 | 200 | Duplicate |
+| Same key, explicitly pruned by fixture | 2, 2, 2 | 200 | Duplicate |
+| Same key, changed payload | 1, 1, 1 | 409 | Safe rejection |
+
+The 15-case matrix matched every expected outcome. Completion-only missed all nine
+duplicates; the three 409 cases safely rejected changed intent rather than completing
+the requested new effect. Pruning is an explicit simulated state transition, not a
+measurement of any provider's retention interval. The auditor checks commit-before-drop
+order, three distinct process identities, request keys, effects, results, and declared
+suite completeness. Evidence remains unsigned.
+
+[Stripe](https://docs.stripe.com/api/idempotent_requests),
+[PayPal](https://developer.paypal.com/api/rest/reference/idempotency/), and
+[AWS](https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/)
+informed these failure contracts. This fixture does not emulate their APIs or call them.
+See the [HTTP spec](docs/superpowers/specs/2026-10-09-http-replay-v0.2.md).
+
 The LangGraph adapter uses the actual Functional API and SqliteSaver, not an emulator.
 Its after-task crash hooks the public saver's `put_writes` after commit. This boundary is
 distinct from the scheduler race reported in issue 8039.
@@ -84,11 +118,16 @@ python -m ruff check src tests
 python -m build
 ```
 
-Local Python 3.14.7 verification passed 55 tests, including real LangGraph process crashes,
+The first Python 3.14.7 release passed 55 tests, including real LangGraph process crashes,
 concurrent stable-key requests, payload conflicts, report tampering, timeout handling, and
 preservation of existing output paths. The 90-run matrix used three repetitions per cell,
 LangGraph 1.2.14, and SQLite saver 3.1.1. This small authored suite is regression evidence.
 See the [verification record](docs/experiments/2026-10-09-verification.md).
+
+Version 0.2 passed 94 tests on local Python 3.14.7, including separate HTTP processes,
+concurrent requests, malformed protocol inputs, and missing-case and evidence-tampering
+checks. The first published release also passed all six Ubuntu/Windows CI jobs on Python
+3.11, 3.12, and 3.14. See the [HTTP verification](docs/experiments/2026-10-09-http-verification.md).
 
 | Tool mode, after-effect crash | Reference committed effects | LangGraph committed effects |
 |---|---|---|
@@ -104,6 +143,8 @@ No model or paid provider was called. Actual paid-provider cost: USD 0.00.
 - Process death is not machine power loss or filesystem corruption.
 - Stable-key correctness depends on the downstream sink's atomic key-and-effect transaction.
 - SQLite is local; no distributed transaction, cross-host retry, or remote key expiration.
+- The HTTP server is a short-lived, unencrypted loopback fixture, not a production service.
+  It serializes effect requests; it does not model provider concurrency or SDK retry rules.
 - Traces are unsigned and must come from a trusted experiment. Report consistency checks
   do not prove that submitted evidence actually ran.
 - Small authored scenarios are regression experiments, not independent production benchmarks.
@@ -112,8 +153,8 @@ No model or paid provider was called. Actual paid-provider cost: USD 0.00.
 
 ## Next improvement
 
-Add a replayed HTTP tool service so the client can lose a response after the server commits
-an effect, then compare stable keys, retention expiry, and payload-conflict behavior.
+Add independently authored adapter contracts and failure cases, then test whether the
+effect reconciler catches failures that were not designed around its implementation.
 
 ## License
 

@@ -12,3 +12,7 @@ LangSmith tracing flags are disabled in workers to avoid inheriting optional hos
 
 Intended use: agent tool recovery integration experiments. Non-goals: semantic answer
 quality, prompt injection evaluation, provider reliability rankings, or financial guarantees.
+
+Version 0.2 uses only local standard-library HTTP sockets and synthetic effect requests.
+Commercial documentation is evidence for failure contracts, not a live-provider test.
+The replay matrix called no Stripe, PayPal, AWS, model, or paid endpoint. USD 0.00.

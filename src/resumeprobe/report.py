@@ -6,7 +6,7 @@ from collections import defaultdict
 from pathlib import Path
 
 from resumeprobe.audit import audit_case, summarize
-from resumeprobe.contracts import Scenario
+from resumeprobe.contracts import Scenario, matrix
 
 
 def load_report(path: Path) -> dict:
@@ -17,8 +17,12 @@ def load_report(path: Path) -> dict:
         raise ValueError(f"non-finite JSON value: {value}")
 
     report = json.loads(path.read_text(encoding="utf-8"), parse_constant=reject_constant)
-    if not isinstance(report, dict) or report.get("schema_version") != 1:
-        raise ValueError("expected report schema_version 1")
+    if (
+        not isinstance(report, dict)
+        or report.get("schema_version") != 1
+        or report.get("suite") != "tool-recovery-v1"
+    ):
+        raise ValueError("expected tool-recovery-v1 report schema_version 1")
     cases = report.get("cases")
     if not isinstance(cases, list) or not cases or len(cases) > 1500:
         raise ValueError("expected 1 to 1500 cases")
@@ -28,6 +32,8 @@ def load_report(path: Path) -> dict:
             raise ValueError("case must be an object")
         try:
             scenario = Scenario(**case["scenario"])
+            if scenario.seed != report.get("seed"):
+                raise ValueError("case seed differs from report seed")
             if case["case_id"] != scenario.case_id or scenario.case_id in seen:
                 raise ValueError("invalid or duplicate case identity")
             seen.add(scenario.case_id)
@@ -67,6 +73,13 @@ def load_report(path: Path) -> dict:
             status == expected
         ):
             raise ValueError("stored expectation differs from the versioned suite")
+    adapters = tuple(dict.fromkeys(case["scenario"]["adapter"] for case in cases))
+    expected_cases = {
+        scenario.case_id
+        for scenario in matrix(report.get("seed"), report.get("repetitions"), adapters)
+    }
+    if seen != expected_cases:
+        raise ValueError("report is missing or substituting declared suite cases")
     if report.get("summary") != summarize(cases):
         raise ValueError("stored summary differs from case evidence")
     return report

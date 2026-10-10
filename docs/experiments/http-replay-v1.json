@@ -1,0 +1,1968 @@
+{
+  "schema_version": 1,
+  "suite": "http-replay-v1",
+  "seed": 20261009,
+  "repetitions": 3,
+  "versions": {
+    "resumeprobe": "0.2.0",
+    "python": "3.14.7"
+  },
+  "elapsed_ms": 7688.631,
+  "cases": [
+    {
+      "case_id": "http-no-key-0",
+      "scenario": {
+        "name": "no-key",
+        "seed": 20261009,
+        "repetition": 0
+      },
+      "server": {
+        "host": "127.0.0.1",
+        "pid": 20140,
+        "port": 63100
+      },
+      "clients": [
+        {
+          "attempt": 1,
+          "error_type": "RemoteDisconnected",
+          "outcome": "transport_error",
+          "pid": 27920
+        },
+        {
+          "attempt": 2,
+          "body": {
+            "effect_id": 2,
+            "operation_id": "ab0ab64eec85b51e76f57420",
+            "payload_sha256": "675f2a110256424e7a469245ff96aba74e8a02819bf357cef0586d7891d7e2b6"
+          },
+          "outcome": "response",
+          "pid": 21920,
+          "status": 200
+        }
+      ],
+      "processes": [
+        {
+          "attempt": 1,
+          "returncode": 0,
+          "stderr": ""
+        },
+        {
+          "attempt": 2,
+          "returncode": 0,
+          "stderr": ""
+        }
+      ],
+      "effects": [
+        {
+          "effect_id": 1,
+          "operation_id": "ab0ab64eec85b51e76f57420",
+          "payload_sha256": "675f2a110256424e7a469245ff96aba74e8a02819bf357cef0586d7891d7e2b6",
+          "attempt": 1,
+          "request_key": null
+        },
+        {
+          "effect_id": 2,
+          "operation_id": "ab0ab64eec85b51e76f57420",
+          "payload_sha256": "675f2a110256424e7a469245ff96aba74e8a02819bf357cef0586d7891d7e2b6",
+          "attempt": 2,
+          "request_key": null
+        }
+      ],
+      "trace": [
+        {
+          "seq": 1,
+          "kind": "http_server_started",
+          "attempt": 0,
+          "detail": {
+            "host": "127.0.0.1",
+            "pid": 20140,
+            "port": 63100
+          }
+        },
+        {
+          "seq": 2,
+          "kind": "http_request",
+          "attempt": 1,
+          "detail": {
+            "key": null,
+            "pid": 20140
+          }
+        },
+        {
+          "seq": 3,
+          "kind": "effect_committed",
+          "attempt": 1,
+          "detail": {
+            "effect_id": 1
+          }
+        },
+        {
+          "seq": 4,
+          "kind": "http_response_dropped",
+          "attempt": 1,
+          "detail": {
+            "effect_id": 1,
+            "operation_id": "ab0ab64eec85b51e76f57420",
+            "payload_sha256": "675f2a110256424e7a469245ff96aba74e8a02819bf357cef0586d7891d7e2b6"
+          }
+        },
+        {
+          "seq": 5,
+          "kind": "http_request",
+          "attempt": 2,
+          "detail": {
+            "key": null,
+            "pid": 20140
+          }
+        },
+        {
+          "seq": 6,
+          "kind": "effect_committed",
+          "attempt": 2,
+          "detail": {
+            "effect_id": 2
+          }
+        },
+        {
+          "seq": 7,
+          "kind": "http_response_sent",
+          "attempt": 2,
+          "detail": {
+            "effect_id": 2,
+            "operation_id": "ab0ab64eec85b51e76f57420",
+            "payload_sha256": "675f2a110256424e7a469245ff96aba74e8a02819bf357cef0586d7891d7e2b6"
+          }
+        }
+      ],
+      "effect_count": 2,
+      "findings": [
+        "EFFECT_COUNT_VIOLATION"
+      ],
+      "status": "unsafe",
+      "completion_only_safe": true,
+      "expected_status": "unsafe",
+      "expectation_matched": true
+    },
+    {
+      "case_id": "http-no-key-1",
+      "scenario": {
+        "name": "no-key",
+        "seed": 20261009,
+        "repetition": 1
+      },
+      "server": {
+        "host": "127.0.0.1",
+        "pid": 24352,
+        "port": 63104
+      },
+      "clients": [
+        {
+          "attempt": 1,
+          "error_type": "RemoteDisconnected",
+          "outcome": "transport_error",
+          "pid": 28444
+        },
+        {
+          "attempt": 2,
+          "body": {
+            "effect_id": 2,
+            "operation_id": "b4071681ce99351cad95b18e",
+            "payload_sha256": "675f2a110256424e7a469245ff96aba74e8a02819bf357cef0586d7891d7e2b6"
+          },
+          "outcome": "response",
+          "pid": 19280,
+          "status": 200
+        }
+      ],
+      "processes": [
+        {
+          "attempt": 1,
+          "returncode": 0,
+          "stderr": ""
+        },
+        {
+          "attempt": 2,
+          "returncode": 0,
+          "stderr": ""
+        }
+      ],
+      "effects": [
+        {
+          "effect_id": 1,
+          "operation_id": "b4071681ce99351cad95b18e",
+          "payload_sha256": "675f2a110256424e7a469245ff96aba74e8a02819bf357cef0586d7891d7e2b6",
+          "attempt": 1,
+          "request_key": null
+        },
+        {
+          "effect_id": 2,
+          "operation_id": "b4071681ce99351cad95b18e",
+          "payload_sha256": "675f2a110256424e7a469245ff96aba74e8a02819bf357cef0586d7891d7e2b6",
+          "attempt": 2,
+          "request_key": null
+        }
+      ],
+      "trace": [
+        {
+          "seq": 1,
+          "kind": "http_server_started",
+          "attempt": 0,
+          "detail": {
+            "host": "127.0.0.1",
+            "pid": 24352,
+            "port": 63104
+          }
+        },
+        {
+          "seq": 2,
+          "kind": "http_request",
+          "attempt": 1,
+          "detail": {
+            "key": null,
+            "pid": 24352
+          }
+        },
+        {
+          "seq": 3,
+          "kind": "effect_committed",
+          "attempt": 1,
+          "detail": {
+            "effect_id": 1
+          }
+        },
+        {
+          "seq": 4,
+          "kind": "http_response_dropped",
+          "attempt": 1,
+          "detail": {
+            "effect_id": 1,
+            "operation_id": "b4071681ce99351cad95b18e",
+            "payload_sha256": "675f2a110256424e7a469245ff96aba74e8a02819bf357cef0586d7891d7e2b6"
+          }
+        },
+        {
+          "seq": 5,
+          "kind": "http_request",
+          "attempt": 2,
+          "detail": {
+            "key": null,
+            "pid": 24352
+          }
+        },
+        {
+          "seq": 6,
+          "kind": "effect_committed",
+          "attempt": 2,
+          "detail": {
+            "effect_id": 2
+          }
+        },
+        {
+          "seq": 7,
+          "kind": "http_response_sent",
+          "attempt": 2,
+          "detail": {
+            "effect_id": 2,
+            "operation_id": "b4071681ce99351cad95b18e",
+            "payload_sha256": "675f2a110256424e7a469245ff96aba74e8a02819bf357cef0586d7891d7e2b6"
+          }
+        }
+      ],
+      "effect_count": 2,
+      "findings": [
+        "EFFECT_COUNT_VIOLATION"
+      ],
+      "status": "unsafe",
+      "completion_only_safe": true,
+      "expected_status": "unsafe",
+      "expectation_matched": true
+    },
+    {
+      "case_id": "http-no-key-2",
+      "scenario": {
+        "name": "no-key",
+        "seed": 20261009,
+        "repetition": 2
+      },
+      "server": {
+        "host": "127.0.0.1",
+        "pid": 29808,
+        "port": 63107
+      },
+      "clients": [
+        {
+          "attempt": 1,
+          "error_type": "RemoteDisconnected",
+          "outcome": "transport_error",
+          "pid": 10904
+        },
+        {
+          "attempt": 2,
+          "body": {
+            "effect_id": 2,
+            "operation_id": "62add8b4a5c9100554a8bdf1",
+            "payload_sha256": "675f2a110256424e7a469245ff96aba74e8a02819bf357cef0586d7891d7e2b6"
+          },
+          "outcome": "response",
+          "pid": 27404,
+          "status": 200
+        }
+      ],
+      "processes": [
+        {
+          "attempt": 1,
+          "returncode": 0,
+          "stderr": ""
+        },
+        {
+          "attempt": 2,
+          "returncode": 0,
+          "stderr": ""
+        }
+      ],
+      "effects": [
+        {
+          "effect_id": 1,
+          "operation_id": "62add8b4a5c9100554a8bdf1",
+          "payload_sha256": "675f2a110256424e7a469245ff96aba74e8a02819bf357cef0586d7891d7e2b6",
+          "attempt": 1,
+          "request_key": null
+        },
+        {
+          "effect_id": 2,
+          "operation_id": "62add8b4a5c9100554a8bdf1",
+          "payload_sha256": "675f2a110256424e7a469245ff96aba74e8a02819bf357cef0586d7891d7e2b6",
+          "attempt": 2,
+          "request_key": null
+        }
+      ],
+      "trace": [
+        {
+          "seq": 1,
+          "kind": "http_server_started",
+          "attempt": 0,
+          "detail": {
+            "host": "127.0.0.1",
+            "pid": 29808,
+            "port": 63107
+          }
+        },
+        {
+          "seq": 2,
+          "kind": "http_request",
+          "attempt": 1,
+          "detail": {
+            "key": null,
+            "pid": 29808
+          }
+        },
+        {
+          "seq": 3,
+          "kind": "effect_committed",
+          "attempt": 1,
+          "detail": {
+            "effect_id": 1
+          }
+        },
+        {
+          "seq": 4,
+          "kind": "http_response_dropped",
+          "attempt": 1,
+          "detail": {
+            "effect_id": 1,
+            "operation_id": "62add8b4a5c9100554a8bdf1",
+            "payload_sha256": "675f2a110256424e7a469245ff96aba74e8a02819bf357cef0586d7891d7e2b6"
+          }
+        },
+        {
+          "seq": 5,
+          "kind": "http_request",
+          "attempt": 2,
+          "detail": {
+            "key": null,
+            "pid": 29808
+          }
+        },
+        {
+          "seq": 6,
+          "kind": "effect_committed",
+          "attempt": 2,
+          "detail": {
+            "effect_id": 2
+          }
+        },
+        {
+          "seq": 7,
+          "kind": "http_response_sent",
+          "attempt": 2,
+          "detail": {
+            "effect_id": 2,
+            "operation_id": "62add8b4a5c9100554a8bdf1",
+            "payload_sha256": "675f2a110256424e7a469245ff96aba74e8a02819bf357cef0586d7891d7e2b6"
+          }
+        }
+      ],
+      "effect_count": 2,
+      "findings": [
+        "EFFECT_COUNT_VIOLATION"
+      ],
+      "status": "unsafe",
+      "completion_only_safe": true,
+      "expected_status": "unsafe",
+      "expectation_matched": true
+    },
+    {
+      "case_id": "http-stable-key-0",
+      "scenario": {
+        "name": "stable-key",
+        "seed": 20261009,
+        "repetition": 0
+      },
+      "server": {
+        "host": "127.0.0.1",
+        "pid": 19812,
+        "port": 63111
+      },
+      "clients": [
+        {
+          "attempt": 1,
+          "error_type": "RemoteDisconnected",
+          "outcome": "transport_error",
+          "pid": 33620
+        },
+        {
+          "attempt": 2,
+          "body": {
+            "effect_id": 1,
+            "operation_id": "cc737af7e51e766ec46c7422",
+            "payload_sha256": "675f2a110256424e7a469245ff96aba74e8a02819bf357cef0586d7891d7e2b6"
+          },
+          "outcome": "response",
+          "pid": 6652,
+          "status": 200
+        }
+      ],
+      "processes": [
+        {
+          "attempt": 1,
+          "returncode": 0,
+          "stderr": ""
+        },
+        {
+          "attempt": 2,
+          "returncode": 0,
+          "stderr": ""
+        }
+      ],
+      "effects": [
+        {
+          "effect_id": 1,
+          "operation_id": "cc737af7e51e766ec46c7422",
+          "payload_sha256": "675f2a110256424e7a469245ff96aba74e8a02819bf357cef0586d7891d7e2b6",
+          "attempt": 1,
+          "request_key": "cc737af7e51e766ec46c7422"
+        }
+      ],
+      "trace": [
+        {
+          "seq": 1,
+          "kind": "http_server_started",
+          "attempt": 0,
+          "detail": {
+            "host": "127.0.0.1",
+            "pid": 19812,
+            "port": 63111
+          }
+        },
+        {
+          "seq": 2,
+          "kind": "http_request",
+          "attempt": 1,
+          "detail": {
+            "key": "cc737af7e51e766ec46c7422",
+            "pid": 19812
+          }
+        },
+        {
+          "seq": 3,
+          "kind": "effect_committed",
+          "attempt": 1,
+          "detail": {
+            "effect_id": 1
+          }
+        },
+        {
+          "seq": 4,
+          "kind": "http_response_dropped",
+          "attempt": 1,
+          "detail": {
+            "effect_id": 1,
+            "operation_id": "cc737af7e51e766ec46c7422",
+            "payload_sha256": "675f2a110256424e7a469245ff96aba74e8a02819bf357cef0586d7891d7e2b6"
+          }
+        },
+        {
+          "seq": 5,
+          "kind": "http_request",
+          "attempt": 2,
+          "detail": {
+            "key": "cc737af7e51e766ec46c7422",
+            "pid": 19812
+          }
+        },
+        {
+          "seq": 6,
+          "kind": "effect_reused",
+          "attempt": 2,
+          "detail": {
+            "effect_id": 1
+          }
+        },
+        {
+          "seq": 7,
+          "kind": "http_response_sent",
+          "attempt": 2,
+          "detail": {
+            "effect_id": 1,
+            "operation_id": "cc737af7e51e766ec46c7422",
+            "payload_sha256": "675f2a110256424e7a469245ff96aba74e8a02819bf357cef0586d7891d7e2b6"
+          }
+        }
+      ],
+      "effect_count": 1,
+      "findings": [],
+      "status": "safe",
+      "completion_only_safe": true,
+      "expected_status": "safe",
+      "expectation_matched": true
+    },
+    {
+      "case_id": "http-stable-key-1",
+      "scenario": {
+        "name": "stable-key",
+        "seed": 20261009,
+        "repetition": 1
+      },
+      "server": {
+        "host": "127.0.0.1",
+        "pid": 29276,
+        "port": 63114
+      },
+      "clients": [
+        {
+          "attempt": 1,
+          "error_type": "RemoteDisconnected",
+          "outcome": "transport_error",
+          "pid": 29620
+        },
+        {
+          "attempt": 2,
+          "body": {
+            "effect_id": 1,
+            "operation_id": "71848c6bdb7b0f932ec752eb",
+            "payload_sha256": "675f2a110256424e7a469245ff96aba74e8a02819bf357cef0586d7891d7e2b6"
+          },
+          "outcome": "response",
+          "pid": 33072,
+          "status": 200
+        }
+      ],
+      "processes": [
+        {
+          "attempt": 1,
+          "returncode": 0,
+          "stderr": ""
+        },
+        {
+          "attempt": 2,
+          "returncode": 0,
+          "stderr": ""
+        }
+      ],
+      "effects": [
+        {
+          "effect_id": 1,
+          "operation_id": "71848c6bdb7b0f932ec752eb",
+          "payload_sha256": "675f2a110256424e7a469245ff96aba74e8a02819bf357cef0586d7891d7e2b6",
+          "attempt": 1,
+          "request_key": "71848c6bdb7b0f932ec752eb"
+        }
+      ],
+      "trace": [
+        {
+          "seq": 1,
+          "kind": "http_server_started",
+          "attempt": 0,
+          "detail": {
+            "host": "127.0.0.1",
+            "pid": 29276,
+            "port": 63114
+          }
+        },
+        {
+          "seq": 2,
+          "kind": "http_request",
+          "attempt": 1,
+          "detail": {
+            "key": "71848c6bdb7b0f932ec752eb",
+            "pid": 29276
+          }
+        },
+        {
+          "seq": 3,
+          "kind": "effect_committed",
+          "attempt": 1,
+          "detail": {
+            "effect_id": 1
+          }
+        },
+        {
+          "seq": 4,
+          "kind": "http_response_dropped",
+          "attempt": 1,
+          "detail": {
+            "effect_id": 1,
+            "operation_id": "71848c6bdb7b0f932ec752eb",
+            "payload_sha256": "675f2a110256424e7a469245ff96aba74e8a02819bf357cef0586d7891d7e2b6"
+          }
+        },
+        {
+          "seq": 5,
+          "kind": "http_request",
+          "attempt": 2,
+          "detail": {
+            "key": "71848c6bdb7b0f932ec752eb",
+            "pid": 29276
+          }
+        },
+        {
+          "seq": 6,
+          "kind": "effect_reused",
+          "attempt": 2,
+          "detail": {
+            "effect_id": 1
+          }
+        },
+        {
+          "seq": 7,
+          "kind": "http_response_sent",
+          "attempt": 2,
+          "detail": {
+            "effect_id": 1,
+            "operation_id": "71848c6bdb7b0f932ec752eb",
+            "payload_sha256": "675f2a110256424e7a469245ff96aba74e8a02819bf357cef0586d7891d7e2b6"
+          }
+        }
+      ],
+      "effect_count": 1,
+      "findings": [],
+      "status": "safe",
+      "completion_only_safe": true,
+      "expected_status": "safe",
+      "expectation_matched": true
+    },
+    {
+      "case_id": "http-stable-key-2",
+      "scenario": {
+        "name": "stable-key",
+        "seed": 20261009,
+        "repetition": 2
+      },
+      "server": {
+        "host": "127.0.0.1",
+        "pid": 22532,
+        "port": 63118
+      },
+      "clients": [
+        {
+          "attempt": 1,
+          "error_type": "RemoteDisconnected",
+          "outcome": "transport_error",
+          "pid": 27692
+        },
+        {
+          "attempt": 2,
+          "body": {
+            "effect_id": 1,
+            "operation_id": "795510fb3f61631210ca2b38",
+            "payload_sha256": "675f2a110256424e7a469245ff96aba74e8a02819bf357cef0586d7891d7e2b6"
+          },
+          "outcome": "response",
+          "pid": 25824,
+          "status": 200
+        }
+      ],
+      "processes": [
+        {
+          "attempt": 1,
+          "returncode": 0,
+          "stderr": ""
+        },
+        {
+          "attempt": 2,
+          "returncode": 0,
+          "stderr": ""
+        }
+      ],
+      "effects": [
+        {
+          "effect_id": 1,
+          "operation_id": "795510fb3f61631210ca2b38",
+          "payload_sha256": "675f2a110256424e7a469245ff96aba74e8a02819bf357cef0586d7891d7e2b6",
+          "attempt": 1,
+          "request_key": "795510fb3f61631210ca2b38"
+        }
+      ],
+      "trace": [
+        {
+          "seq": 1,
+          "kind": "http_server_started",
+          "attempt": 0,
+          "detail": {
+            "host": "127.0.0.1",
+            "pid": 22532,
+            "port": 63118
+          }
+        },
+        {
+          "seq": 2,
+          "kind": "http_request",
+          "attempt": 1,
+          "detail": {
+            "key": "795510fb3f61631210ca2b38",
+            "pid": 22532
+          }
+        },
+        {
+          "seq": 3,
+          "kind": "effect_committed",
+          "attempt": 1,
+          "detail": {
+            "effect_id": 1
+          }
+        },
+        {
+          "seq": 4,
+          "kind": "http_response_dropped",
+          "attempt": 1,
+          "detail": {
+            "effect_id": 1,
+            "operation_id": "795510fb3f61631210ca2b38",
+            "payload_sha256": "675f2a110256424e7a469245ff96aba74e8a02819bf357cef0586d7891d7e2b6"
+          }
+        },
+        {
+          "seq": 5,
+          "kind": "http_request",
+          "attempt": 2,
+          "detail": {
+            "key": "795510fb3f61631210ca2b38",
+            "pid": 22532
+          }
+        },
+        {
+          "seq": 6,
+          "kind": "effect_reused",
+          "attempt": 2,
+          "detail": {
+            "effect_id": 1
+          }
+        },
+        {
+          "seq": 7,
+          "kind": "http_response_sent",
+          "attempt": 2,
+          "detail": {
+            "effect_id": 1,
+            "operation_id": "795510fb3f61631210ca2b38",
+            "payload_sha256": "675f2a110256424e7a469245ff96aba74e8a02819bf357cef0586d7891d7e2b6"
+          }
+        }
+      ],
+      "effect_count": 1,
+      "findings": [],
+      "status": "safe",
+      "completion_only_safe": true,
+      "expected_status": "safe",
+      "expectation_matched": true
+    },
+    {
+      "case_id": "http-attempt-key-0",
+      "scenario": {
+        "name": "attempt-key",
+        "seed": 20261009,
+        "repetition": 0
+      },
+      "server": {
+        "host": "127.0.0.1",
+        "pid": 4296,
+        "port": 63121
+      },
+      "clients": [
+        {
+          "attempt": 1,
+          "error_type": "RemoteDisconnected",
+          "outcome": "transport_error",
+          "pid": 32264
+        },
+        {
+          "attempt": 2,
+          "body": {
+            "effect_id": 2,
+            "operation_id": "26d57378938b03a8ed43bd53",
+            "payload_sha256": "675f2a110256424e7a469245ff96aba74e8a02819bf357cef0586d7891d7e2b6"
+          },
+          "outcome": "response",
+          "pid": 28508,
+          "status": 200
+        }
+      ],
+      "processes": [
+        {
+          "attempt": 1,
+          "returncode": 0,
+          "stderr": ""
+        },
+        {
+          "attempt": 2,
+          "returncode": 0,
+          "stderr": ""
+        }
+      ],
+      "effects": [
+        {
+          "effect_id": 1,
+          "operation_id": "26d57378938b03a8ed43bd53",
+          "payload_sha256": "675f2a110256424e7a469245ff96aba74e8a02819bf357cef0586d7891d7e2b6",
+          "attempt": 1,
+          "request_key": "26d57378938b03a8ed43bd53:1"
+        },
+        {
+          "effect_id": 2,
+          "operation_id": "26d57378938b03a8ed43bd53",
+          "payload_sha256": "675f2a110256424e7a469245ff96aba74e8a02819bf357cef0586d7891d7e2b6",
+          "attempt": 2,
+          "request_key": "26d57378938b03a8ed43bd53:2"
+        }
+      ],
+      "trace": [
+        {
+          "seq": 1,
+          "kind": "http_server_started",
+          "attempt": 0,
+          "detail": {
+            "host": "127.0.0.1",
+            "pid": 4296,
+            "port": 63121
+          }
+        },
+        {
+          "seq": 2,
+          "kind": "http_request",
+          "attempt": 1,
+          "detail": {
+            "key": "26d57378938b03a8ed43bd53:1",
+            "pid": 4296
+          }
+        },
+        {
+          "seq": 3,
+          "kind": "effect_committed",
+          "attempt": 1,
+          "detail": {
+            "effect_id": 1
+          }
+        },
+        {
+          "seq": 4,
+          "kind": "http_response_dropped",
+          "attempt": 1,
+          "detail": {
+            "effect_id": 1,
+            "operation_id": "26d57378938b03a8ed43bd53",
+            "payload_sha256": "675f2a110256424e7a469245ff96aba74e8a02819bf357cef0586d7891d7e2b6"
+          }
+        },
+        {
+          "seq": 5,
+          "kind": "http_request",
+          "attempt": 2,
+          "detail": {
+            "key": "26d57378938b03a8ed43bd53:2",
+            "pid": 4296
+          }
+        },
+        {
+          "seq": 6,
+          "kind": "effect_committed",
+          "attempt": 2,
+          "detail": {
+            "effect_id": 2
+          }
+        },
+        {
+          "seq": 7,
+          "kind": "http_response_sent",
+          "attempt": 2,
+          "detail": {
+            "effect_id": 2,
+            "operation_id": "26d57378938b03a8ed43bd53",
+            "payload_sha256": "675f2a110256424e7a469245ff96aba74e8a02819bf357cef0586d7891d7e2b6"
+          }
+        }
+      ],
+      "effect_count": 2,
+      "findings": [
+        "EFFECT_COUNT_VIOLATION"
+      ],
+      "status": "unsafe",
+      "completion_only_safe": true,
+      "expected_status": "unsafe",
+      "expectation_matched": true
+    },
+    {
+      "case_id": "http-attempt-key-1",
+      "scenario": {
+        "name": "attempt-key",
+        "seed": 20261009,
+        "repetition": 1
+      },
+      "server": {
+        "host": "127.0.0.1",
+        "pid": 25328,
+        "port": 63125
+      },
+      "clients": [
+        {
+          "attempt": 1,
+          "error_type": "RemoteDisconnected",
+          "outcome": "transport_error",
+          "pid": 31588
+        },
+        {
+          "attempt": 2,
+          "body": {
+            "effect_id": 2,
+            "operation_id": "e227fd9102260189fbbaf338",
+            "payload_sha256": "675f2a110256424e7a469245ff96aba74e8a02819bf357cef0586d7891d7e2b6"
+          },
+          "outcome": "response",
+          "pid": 21092,
+          "status": 200
+        }
+      ],
+      "processes": [
+        {
+          "attempt": 1,
+          "returncode": 0,
+          "stderr": ""
+        },
+        {
+          "attempt": 2,
+          "returncode": 0,
+          "stderr": ""
+        }
+      ],
+      "effects": [
+        {
+          "effect_id": 1,
+          "operation_id": "e227fd9102260189fbbaf338",
+          "payload_sha256": "675f2a110256424e7a469245ff96aba74e8a02819bf357cef0586d7891d7e2b6",
+          "attempt": 1,
+          "request_key": "e227fd9102260189fbbaf338:1"
+        },
+        {
+          "effect_id": 2,
+          "operation_id": "e227fd9102260189fbbaf338",
+          "payload_sha256": "675f2a110256424e7a469245ff96aba74e8a02819bf357cef0586d7891d7e2b6",
+          "attempt": 2,
+          "request_key": "e227fd9102260189fbbaf338:2"
+        }
+      ],
+      "trace": [
+        {
+          "seq": 1,
+          "kind": "http_server_started",
+          "attempt": 0,
+          "detail": {
+            "host": "127.0.0.1",
+            "pid": 25328,
+            "port": 63125
+          }
+        },
+        {
+          "seq": 2,
+          "kind": "http_request",
+          "attempt": 1,
+          "detail": {
+            "key": "e227fd9102260189fbbaf338:1",
+            "pid": 25328
+          }
+        },
+        {
+          "seq": 3,
+          "kind": "effect_committed",
+          "attempt": 1,
+          "detail": {
+            "effect_id": 1
+          }
+        },
+        {
+          "seq": 4,
+          "kind": "http_response_dropped",
+          "attempt": 1,
+          "detail": {
+            "effect_id": 1,
+            "operation_id": "e227fd9102260189fbbaf338",
+            "payload_sha256": "675f2a110256424e7a469245ff96aba74e8a02819bf357cef0586d7891d7e2b6"
+          }
+        },
+        {
+          "seq": 5,
+          "kind": "http_request",
+          "attempt": 2,
+          "detail": {
+            "key": "e227fd9102260189fbbaf338:2",
+            "pid": 25328
+          }
+        },
+        {
+          "seq": 6,
+          "kind": "effect_committed",
+          "attempt": 2,
+          "detail": {
+            "effect_id": 2
+          }
+        },
+        {
+          "seq": 7,
+          "kind": "http_response_sent",
+          "attempt": 2,
+          "detail": {
+            "effect_id": 2,
+            "operation_id": "e227fd9102260189fbbaf338",
+            "payload_sha256": "675f2a110256424e7a469245ff96aba74e8a02819bf357cef0586d7891d7e2b6"
+          }
+        }
+      ],
+      "effect_count": 2,
+      "findings": [
+        "EFFECT_COUNT_VIOLATION"
+      ],
+      "status": "unsafe",
+      "completion_only_safe": true,
+      "expected_status": "unsafe",
+      "expectation_matched": true
+    },
+    {
+      "case_id": "http-attempt-key-2",
+      "scenario": {
+        "name": "attempt-key",
+        "seed": 20261009,
+        "repetition": 2
+      },
+      "server": {
+        "host": "127.0.0.1",
+        "pid": 4212,
+        "port": 63128
+      },
+      "clients": [
+        {
+          "attempt": 1,
+          "error_type": "RemoteDisconnected",
+          "outcome": "transport_error",
+          "pid": 26980
+        },
+        {
+          "attempt": 2,
+          "body": {
+            "effect_id": 2,
+            "operation_id": "ec042d4cf48a5e6ace5f9e9b",
+            "payload_sha256": "675f2a110256424e7a469245ff96aba74e8a02819bf357cef0586d7891d7e2b6"
+          },
+          "outcome": "response",
+          "pid": 16236,
+          "status": 200
+        }
+      ],
+      "processes": [
+        {
+          "attempt": 1,
+          "returncode": 0,
+          "stderr": ""
+        },
+        {
+          "attempt": 2,
+          "returncode": 0,
+          "stderr": ""
+        }
+      ],
+      "effects": [
+        {
+          "effect_id": 1,
+          "operation_id": "ec042d4cf48a5e6ace5f9e9b",
+          "payload_sha256": "675f2a110256424e7a469245ff96aba74e8a02819bf357cef0586d7891d7e2b6",
+          "attempt": 1,
+          "request_key": "ec042d4cf48a5e6ace5f9e9b:1"
+        },
+        {
+          "effect_id": 2,
+          "operation_id": "ec042d4cf48a5e6ace5f9e9b",
+          "payload_sha256": "675f2a110256424e7a469245ff96aba74e8a02819bf357cef0586d7891d7e2b6",
+          "attempt": 2,
+          "request_key": "ec042d4cf48a5e6ace5f9e9b:2"
+        }
+      ],
+      "trace": [
+        {
+          "seq": 1,
+          "kind": "http_server_started",
+          "attempt": 0,
+          "detail": {
+            "host": "127.0.0.1",
+            "pid": 4212,
+            "port": 63128
+          }
+        },
+        {
+          "seq": 2,
+          "kind": "http_request",
+          "attempt": 1,
+          "detail": {
+            "key": "ec042d4cf48a5e6ace5f9e9b:1",
+            "pid": 4212
+          }
+        },
+        {
+          "seq": 3,
+          "kind": "effect_committed",
+          "attempt": 1,
+          "detail": {
+            "effect_id": 1
+          }
+        },
+        {
+          "seq": 4,
+          "kind": "http_response_dropped",
+          "attempt": 1,
+          "detail": {
+            "effect_id": 1,
+            "operation_id": "ec042d4cf48a5e6ace5f9e9b",
+            "payload_sha256": "675f2a110256424e7a469245ff96aba74e8a02819bf357cef0586d7891d7e2b6"
+          }
+        },
+        {
+          "seq": 5,
+          "kind": "http_request",
+          "attempt": 2,
+          "detail": {
+            "key": "ec042d4cf48a5e6ace5f9e9b:2",
+            "pid": 4212
+          }
+        },
+        {
+          "seq": 6,
+          "kind": "effect_committed",
+          "attempt": 2,
+          "detail": {
+            "effect_id": 2
+          }
+        },
+        {
+          "seq": 7,
+          "kind": "http_response_sent",
+          "attempt": 2,
+          "detail": {
+            "effect_id": 2,
+            "operation_id": "ec042d4cf48a5e6ace5f9e9b",
+            "payload_sha256": "675f2a110256424e7a469245ff96aba74e8a02819bf357cef0586d7891d7e2b6"
+          }
+        }
+      ],
+      "effect_count": 2,
+      "findings": [
+        "EFFECT_COUNT_VIOLATION"
+      ],
+      "status": "unsafe",
+      "completion_only_safe": true,
+      "expected_status": "unsafe",
+      "expectation_matched": true
+    },
+    {
+      "case_id": "http-pruned-key-0",
+      "scenario": {
+        "name": "pruned-key",
+        "seed": 20261009,
+        "repetition": 0
+      },
+      "server": {
+        "host": "127.0.0.1",
+        "pid": 28724,
+        "port": 63132
+      },
+      "clients": [
+        {
+          "attempt": 1,
+          "error_type": "RemoteDisconnected",
+          "outcome": "transport_error",
+          "pid": 23592
+        },
+        {
+          "attempt": 2,
+          "body": {
+            "effect_id": 2,
+            "operation_id": "940f09c49d645540881486fc",
+            "payload_sha256": "675f2a110256424e7a469245ff96aba74e8a02819bf357cef0586d7891d7e2b6"
+          },
+          "outcome": "response",
+          "pid": 26004,
+          "status": 200
+        }
+      ],
+      "processes": [
+        {
+          "attempt": 1,
+          "returncode": 0,
+          "stderr": ""
+        },
+        {
+          "attempt": 2,
+          "returncode": 0,
+          "stderr": ""
+        }
+      ],
+      "effects": [
+        {
+          "effect_id": 1,
+          "operation_id": "940f09c49d645540881486fc",
+          "payload_sha256": "675f2a110256424e7a469245ff96aba74e8a02819bf357cef0586d7891d7e2b6",
+          "attempt": 1,
+          "request_key": "940f09c49d645540881486fc"
+        },
+        {
+          "effect_id": 2,
+          "operation_id": "940f09c49d645540881486fc",
+          "payload_sha256": "675f2a110256424e7a469245ff96aba74e8a02819bf357cef0586d7891d7e2b6",
+          "attempt": 2,
+          "request_key": "940f09c49d645540881486fc"
+        }
+      ],
+      "trace": [
+        {
+          "seq": 1,
+          "kind": "http_server_started",
+          "attempt": 0,
+          "detail": {
+            "host": "127.0.0.1",
+            "pid": 28724,
+            "port": 63132
+          }
+        },
+        {
+          "seq": 2,
+          "kind": "http_request",
+          "attempt": 1,
+          "detail": {
+            "key": "940f09c49d645540881486fc",
+            "pid": 28724
+          }
+        },
+        {
+          "seq": 3,
+          "kind": "effect_committed",
+          "attempt": 1,
+          "detail": {
+            "effect_id": 1
+          }
+        },
+        {
+          "seq": 4,
+          "kind": "http_response_dropped",
+          "attempt": 1,
+          "detail": {
+            "effect_id": 1,
+            "operation_id": "940f09c49d645540881486fc",
+            "payload_sha256": "675f2a110256424e7a469245ff96aba74e8a02819bf357cef0586d7891d7e2b6"
+          }
+        },
+        {
+          "seq": 5,
+          "kind": "key_pruned",
+          "attempt": 0,
+          "detail": {
+            "deleted": 1,
+            "request_key": "940f09c49d645540881486fc"
+          }
+        },
+        {
+          "seq": 6,
+          "kind": "http_request",
+          "attempt": 2,
+          "detail": {
+            "key": "940f09c49d645540881486fc",
+            "pid": 28724
+          }
+        },
+        {
+          "seq": 7,
+          "kind": "effect_committed",
+          "attempt": 2,
+          "detail": {
+            "effect_id": 2
+          }
+        },
+        {
+          "seq": 8,
+          "kind": "http_response_sent",
+          "attempt": 2,
+          "detail": {
+            "effect_id": 2,
+            "operation_id": "940f09c49d645540881486fc",
+            "payload_sha256": "675f2a110256424e7a469245ff96aba74e8a02819bf357cef0586d7891d7e2b6"
+          }
+        }
+      ],
+      "effect_count": 2,
+      "findings": [
+        "EFFECT_COUNT_VIOLATION"
+      ],
+      "status": "unsafe",
+      "completion_only_safe": true,
+      "expected_status": "unsafe",
+      "expectation_matched": true
+    },
+    {
+      "case_id": "http-pruned-key-1",
+      "scenario": {
+        "name": "pruned-key",
+        "seed": 20261009,
+        "repetition": 1
+      },
+      "server": {
+        "host": "127.0.0.1",
+        "pid": 23464,
+        "port": 63135
+      },
+      "clients": [
+        {
+          "attempt": 1,
+          "error_type": "RemoteDisconnected",
+          "outcome": "transport_error",
+          "pid": 32552
+        },
+        {
+          "attempt": 2,
+          "body": {
+            "effect_id": 2,
+            "operation_id": "93fd21372338df861044670a",
+            "payload_sha256": "675f2a110256424e7a469245ff96aba74e8a02819bf357cef0586d7891d7e2b6"
+          },
+          "outcome": "response",
+          "pid": 27384,
+          "status": 200
+        }
+      ],
+      "processes": [
+        {
+          "attempt": 1,
+          "returncode": 0,
+          "stderr": ""
+        },
+        {
+          "attempt": 2,
+          "returncode": 0,
+          "stderr": ""
+        }
+      ],
+      "effects": [
+        {
+          "effect_id": 1,
+          "operation_id": "93fd21372338df861044670a",
+          "payload_sha256": "675f2a110256424e7a469245ff96aba74e8a02819bf357cef0586d7891d7e2b6",
+          "attempt": 1,
+          "request_key": "93fd21372338df861044670a"
+        },
+        {
+          "effect_id": 2,
+          "operation_id": "93fd21372338df861044670a",
+          "payload_sha256": "675f2a110256424e7a469245ff96aba74e8a02819bf357cef0586d7891d7e2b6",
+          "attempt": 2,
+          "request_key": "93fd21372338df861044670a"
+        }
+      ],
+      "trace": [
+        {
+          "seq": 1,
+          "kind": "http_server_started",
+          "attempt": 0,
+          "detail": {
+            "host": "127.0.0.1",
+            "pid": 23464,
+            "port": 63135
+          }
+        },
+        {
+          "seq": 2,
+          "kind": "http_request",
+          "attempt": 1,
+          "detail": {
+            "key": "93fd21372338df861044670a",
+            "pid": 23464
+          }
+        },
+        {
+          "seq": 3,
+          "kind": "effect_committed",
+          "attempt": 1,
+          "detail": {
+            "effect_id": 1
+          }
+        },
+        {
+          "seq": 4,
+          "kind": "http_response_dropped",
+          "attempt": 1,
+          "detail": {
+            "effect_id": 1,
+            "operation_id": "93fd21372338df861044670a",
+            "payload_sha256": "675f2a110256424e7a469245ff96aba74e8a02819bf357cef0586d7891d7e2b6"
+          }
+        },
+        {
+          "seq": 5,
+          "kind": "key_pruned",
+          "attempt": 0,
+          "detail": {
+            "deleted": 1,
+            "request_key": "93fd21372338df861044670a"
+          }
+        },
+        {
+          "seq": 6,
+          "kind": "http_request",
+          "attempt": 2,
+          "detail": {
+            "key": "93fd21372338df861044670a",
+            "pid": 23464
+          }
+        },
+        {
+          "seq": 7,
+          "kind": "effect_committed",
+          "attempt": 2,
+          "detail": {
+            "effect_id": 2
+          }
+        },
+        {
+          "seq": 8,
+          "kind": "http_response_sent",
+          "attempt": 2,
+          "detail": {
+            "effect_id": 2,
+            "operation_id": "93fd21372338df861044670a",
+            "payload_sha256": "675f2a110256424e7a469245ff96aba74e8a02819bf357cef0586d7891d7e2b6"
+          }
+        }
+      ],
+      "effect_count": 2,
+      "findings": [
+        "EFFECT_COUNT_VIOLATION"
+      ],
+      "status": "unsafe",
+      "completion_only_safe": true,
+      "expected_status": "unsafe",
+      "expectation_matched": true
+    },
+    {
+      "case_id": "http-pruned-key-2",
+      "scenario": {
+        "name": "pruned-key",
+        "seed": 20261009,
+        "repetition": 2
+      },
+      "server": {
+        "host": "127.0.0.1",
+        "pid": 2000,
+        "port": 63139
+      },
+      "clients": [
+        {
+          "attempt": 1,
+          "error_type": "RemoteDisconnected",
+          "outcome": "transport_error",
+          "pid": 24616
+        },
+        {
+          "attempt": 2,
+          "body": {
+            "effect_id": 2,
+            "operation_id": "2678058446b6ef244e08f125",
+            "payload_sha256": "675f2a110256424e7a469245ff96aba74e8a02819bf357cef0586d7891d7e2b6"
+          },
+          "outcome": "response",
+          "pid": 25420,
+          "status": 200
+        }
+      ],
+      "processes": [
+        {
+          "attempt": 1,
+          "returncode": 0,
+          "stderr": ""
+        },
+        {
+          "attempt": 2,
+          "returncode": 0,
+          "stderr": ""
+        }
+      ],
+      "effects": [
+        {
+          "effect_id": 1,
+          "operation_id": "2678058446b6ef244e08f125",
+          "payload_sha256": "675f2a110256424e7a469245ff96aba74e8a02819bf357cef0586d7891d7e2b6",
+          "attempt": 1,
+          "request_key": "2678058446b6ef244e08f125"
+        },
+        {
+          "effect_id": 2,
+          "operation_id": "2678058446b6ef244e08f125",
+          "payload_sha256": "675f2a110256424e7a469245ff96aba74e8a02819bf357cef0586d7891d7e2b6",
+          "attempt": 2,
+          "request_key": "2678058446b6ef244e08f125"
+        }
+      ],
+      "trace": [
+        {
+          "seq": 1,
+          "kind": "http_server_started",
+          "attempt": 0,
+          "detail": {
+            "host": "127.0.0.1",
+            "pid": 2000,
+            "port": 63139
+          }
+        },
+        {
+          "seq": 2,
+          "kind": "http_request",
+          "attempt": 1,
+          "detail": {
+            "key": "2678058446b6ef244e08f125",
+            "pid": 2000
+          }
+        },
+        {
+          "seq": 3,
+          "kind": "effect_committed",
+          "attempt": 1,
+          "detail": {
+            "effect_id": 1
+          }
+        },
+        {
+          "seq": 4,
+          "kind": "http_response_dropped",
+          "attempt": 1,
+          "detail": {
+            "effect_id": 1,
+            "operation_id": "2678058446b6ef244e08f125",
+            "payload_sha256": "675f2a110256424e7a469245ff96aba74e8a02819bf357cef0586d7891d7e2b6"
+          }
+        },
+        {
+          "seq": 5,
+          "kind": "key_pruned",
+          "attempt": 0,
+          "detail": {
+            "deleted": 1,
+            "request_key": "2678058446b6ef244e08f125"
+          }
+        },
+        {
+          "seq": 6,
+          "kind": "http_request",
+          "attempt": 2,
+          "detail": {
+            "key": "2678058446b6ef244e08f125",
+            "pid": 2000
+          }
+        },
+        {
+          "seq": 7,
+          "kind": "effect_committed",
+          "attempt": 2,
+          "detail": {
+            "effect_id": 2
+          }
+        },
+        {
+          "seq": 8,
+          "kind": "http_response_sent",
+          "attempt": 2,
+          "detail": {
+            "effect_id": 2,
+            "operation_id": "2678058446b6ef244e08f125",
+            "payload_sha256": "675f2a110256424e7a469245ff96aba74e8a02819bf357cef0586d7891d7e2b6"
+          }
+        }
+      ],
+      "effect_count": 2,
+      "findings": [
+        "EFFECT_COUNT_VIOLATION"
+      ],
+      "status": "unsafe",
+      "completion_only_safe": true,
+      "expected_status": "unsafe",
+      "expectation_matched": true
+    },
+    {
+      "case_id": "http-payload-conflict-0",
+      "scenario": {
+        "name": "payload-conflict",
+        "seed": 20261009,
+        "repetition": 0
+      },
+      "server": {
+        "host": "127.0.0.1",
+        "pid": 11296,
+        "port": 63142
+      },
+      "clients": [
+        {
+          "attempt": 1,
+          "error_type": "RemoteDisconnected",
+          "outcome": "transport_error",
+          "pid": 29004
+        },
+        {
+          "attempt": 2,
+          "body": {
+            "error": "idempotency conflict"
+          },
+          "outcome": "response",
+          "pid": 20852,
+          "status": 409
+        }
+      ],
+      "processes": [
+        {
+          "attempt": 1,
+          "returncode": 0,
+          "stderr": ""
+        },
+        {
+          "attempt": 2,
+          "returncode": 0,
+          "stderr": ""
+        }
+      ],
+      "effects": [
+        {
+          "effect_id": 1,
+          "operation_id": "ce893d2d7e92b293eed0525a",
+          "payload_sha256": "675f2a110256424e7a469245ff96aba74e8a02819bf357cef0586d7891d7e2b6",
+          "attempt": 1,
+          "request_key": "ce893d2d7e92b293eed0525a"
+        }
+      ],
+      "trace": [
+        {
+          "seq": 1,
+          "kind": "http_server_started",
+          "attempt": 0,
+          "detail": {
+            "host": "127.0.0.1",
+            "pid": 11296,
+            "port": 63142
+          }
+        },
+        {
+          "seq": 2,
+          "kind": "http_request",
+          "attempt": 1,
+          "detail": {
+            "key": "ce893d2d7e92b293eed0525a",
+            "pid": 11296
+          }
+        },
+        {
+          "seq": 3,
+          "kind": "effect_committed",
+          "attempt": 1,
+          "detail": {
+            "effect_id": 1
+          }
+        },
+        {
+          "seq": 4,
+          "kind": "http_response_dropped",
+          "attempt": 1,
+          "detail": {
+            "effect_id": 1,
+            "operation_id": "ce893d2d7e92b293eed0525a",
+            "payload_sha256": "675f2a110256424e7a469245ff96aba74e8a02819bf357cef0586d7891d7e2b6"
+          }
+        },
+        {
+          "seq": 5,
+          "kind": "http_request",
+          "attempt": 2,
+          "detail": {
+            "key": "ce893d2d7e92b293eed0525a",
+            "pid": 11296
+          }
+        },
+        {
+          "seq": 6,
+          "kind": "http_conflict",
+          "attempt": 2,
+          "detail": {
+            "operation_id": "ce893d2d7e92b293eed0525a"
+          }
+        }
+      ],
+      "effect_count": 1,
+      "findings": [],
+      "status": "safe",
+      "completion_only_safe": false,
+      "expected_status": "safe",
+      "expectation_matched": true
+    },
+    {
+      "case_id": "http-payload-conflict-1",
+      "scenario": {
+        "name": "payload-conflict",
+        "seed": 20261009,
+        "repetition": 1
+      },
+      "server": {
+        "host": "127.0.0.1",
+        "pid": 28176,
+        "port": 63146
+      },
+      "clients": [
+        {
+          "attempt": 1,
+          "error_type": "RemoteDisconnected",
+          "outcome": "transport_error",
+          "pid": 25484
+        },
+        {
+          "attempt": 2,
+          "body": {
+            "error": "idempotency conflict"
+          },
+          "outcome": "response",
+          "pid": 20692,
+          "status": 409
+        }
+      ],
+      "processes": [
+        {
+          "attempt": 1,
+          "returncode": 0,
+          "stderr": ""
+        },
+        {
+          "attempt": 2,
+          "returncode": 0,
+          "stderr": ""
+        }
+      ],
+      "effects": [
+        {
+          "effect_id": 1,
+          "operation_id": "bc6c790af3ccc75c67c22503",
+          "payload_sha256": "675f2a110256424e7a469245ff96aba74e8a02819bf357cef0586d7891d7e2b6",
+          "attempt": 1,
+          "request_key": "bc6c790af3ccc75c67c22503"
+        }
+      ],
+      "trace": [
+        {
+          "seq": 1,
+          "kind": "http_server_started",
+          "attempt": 0,
+          "detail": {
+            "host": "127.0.0.1",
+            "pid": 28176,
+            "port": 63146
+          }
+        },
+        {
+          "seq": 2,
+          "kind": "http_request",
+          "attempt": 1,
+          "detail": {
+            "key": "bc6c790af3ccc75c67c22503",
+            "pid": 28176
+          }
+        },
+        {
+          "seq": 3,
+          "kind": "effect_committed",
+          "attempt": 1,
+          "detail": {
+            "effect_id": 1
+          }
+        },
+        {
+          "seq": 4,
+          "kind": "http_response_dropped",
+          "attempt": 1,
+          "detail": {
+            "effect_id": 1,
+            "operation_id": "bc6c790af3ccc75c67c22503",
+            "payload_sha256": "675f2a110256424e7a469245ff96aba74e8a02819bf357cef0586d7891d7e2b6"
+          }
+        },
+        {
+          "seq": 5,
+          "kind": "http_request",
+          "attempt": 2,
+          "detail": {
+            "key": "bc6c790af3ccc75c67c22503",
+            "pid": 28176
+          }
+        },
+        {
+          "seq": 6,
+          "kind": "http_conflict",
+          "attempt": 2,
+          "detail": {
+            "operation_id": "bc6c790af3ccc75c67c22503"
+          }
+        }
+      ],
+      "effect_count": 1,
+      "findings": [],
+      "status": "safe",
+      "completion_only_safe": false,
+      "expected_status": "safe",
+      "expectation_matched": true
+    },
+    {
+      "case_id": "http-payload-conflict-2",
+      "scenario": {
+        "name": "payload-conflict",
+        "seed": 20261009,
+        "repetition": 2
+      },
+      "server": {
+        "host": "127.0.0.1",
+        "pid": 14584,
+        "port": 63149
+      },
+      "clients": [
+        {
+          "attempt": 1,
+          "error_type": "RemoteDisconnected",
+          "outcome": "transport_error",
+          "pid": 33616
+        },
+        {
+          "attempt": 2,
+          "body": {
+            "error": "idempotency conflict"
+          },
+          "outcome": "response",
+          "pid": 19072,
+          "status": 409
+        }
+      ],
+      "processes": [
+        {
+          "attempt": 1,
+          "returncode": 0,
+          "stderr": ""
+        },
+        {
+          "attempt": 2,
+          "returncode": 0,
+          "stderr": ""
+        }
+      ],
+      "effects": [
+        {
+          "effect_id": 1,
+          "operation_id": "aa35357216770fbedca23aa3",
+          "payload_sha256": "675f2a110256424e7a469245ff96aba74e8a02819bf357cef0586d7891d7e2b6",
+          "attempt": 1,
+          "request_key": "aa35357216770fbedca23aa3"
+        }
+      ],
+      "trace": [
+        {
+          "seq": 1,
+          "kind": "http_server_started",
+          "attempt": 0,
+          "detail": {
+            "host": "127.0.0.1",
+            "pid": 14584,
+            "port": 63149
+          }
+        },
+        {
+          "seq": 2,
+          "kind": "http_request",
+          "attempt": 1,
+          "detail": {
+            "key": "aa35357216770fbedca23aa3",
+            "pid": 14584
+          }
+        },
+        {
+          "seq": 3,
+          "kind": "effect_committed",
+          "attempt": 1,
+          "detail": {
+            "effect_id": 1
+          }
+        },
+        {
+          "seq": 4,
+          "kind": "http_response_dropped",
+          "attempt": 1,
+          "detail": {
+            "effect_id": 1,
+            "operation_id": "aa35357216770fbedca23aa3",
+            "payload_sha256": "675f2a110256424e7a469245ff96aba74e8a02819bf357cef0586d7891d7e2b6"
+          }
+        },
+        {
+          "seq": 5,
+          "kind": "http_request",
+          "attempt": 2,
+          "detail": {
+            "key": "aa35357216770fbedca23aa3",
+            "pid": 14584
+          }
+        },
+        {
+          "seq": 6,
+          "kind": "http_conflict",
+          "attempt": 2,
+          "detail": {
+            "operation_id": "aa35357216770fbedca23aa3"
+          }
+        }
+      ],
+      "effect_count": 1,
+      "findings": [],
+      "status": "safe",
+      "completion_only_safe": false,
+      "expected_status": "safe",
+      "expectation_matched": true
+    }
+  ],
+  "summary": {
+    "cases": 15,
+    "safe": 6,
+    "unsafe": 9,
+    "inconclusive": 0,
+    "completion_only_false_safe": 9,
+    "expectation_matches": 15
+  }
+}
