@@ -84,6 +84,36 @@ suite completeness. Evidence remains unsigned.
 informed these failure contracts. This fixture does not emulate their APIs or call them.
 See the [HTTP spec](docs/superpowers/specs/2026-10-09-http-replay-v0.2.md).
 
+## Crash inside the downstream sink
+
+Version 0.3 also kills the real sink process while the key-and-effect transaction is open.
+A separate crash-control database keeps the receipt even when the effect transaction
+rolls back. The supervisor reads the durable ledger before restarting the child.
+
+```bash
+resumeprobe sink-run --seed 20261009 --repetitions 3 --output artifacts/sink-1
+resumeprobe sink-audit artifacts/sink-1/report.json
+```
+
+![Real atomic sink versus deliberately split transaction](docs/assets/sink-atomicity-v1.svg)
+
+| Process-death boundary | Durable effects/keys before retry | Final effects |
+|---|---|---|
+| After effect insertion, before key | 0 / 0 | 1, 1, 1 |
+| After key insertion, before commit | 0 / 0 | 1, 1, 1 |
+| After atomic commit | 1 / 1 | 1, 1, 1 |
+| Broken baseline: effect committed separately before key | 1 / 0 | 2, 2, 2 |
+
+All twelve expected outcomes matched: nine safe atomic cases and three duplicate baseline
+cases. Completion-only missed all three duplicates. Split ordering is deliberately broken
+fixture code, not the normal tool sink. This is process-death regression evidence on local
+SQLite, not power-loss or distributed atomicity proof. See the
+[approved spec](docs/superpowers/specs/2026-10-09-sink-atomicity.md).
+
+Version 0.3 passed all 113 local tests, including real in-transaction process death and
+explicit connection release after commit/rollback. See the
+[sink verification](docs/experiments/2026-10-09-sink-verification.md).
+
 The LangGraph adapter uses the actual Functional API and SqliteSaver, not an emulator.
 Its after-task crash hooks the public saver's `put_writes` after commit. This boundary is
 distinct from the scheduler race reported in issue 8039.

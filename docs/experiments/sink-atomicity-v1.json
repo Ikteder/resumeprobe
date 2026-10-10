@@ -1,0 +1,1195 @@
+{
+  "schema_version": 1,
+  "suite": "sink-atomicity-v1",
+  "seed": 20261009,
+  "repetitions": 3,
+  "versions": {
+    "resumeprobe": "0.3.0",
+    "python": "3.14.7",
+    "sqlite": "3.50.4"
+  },
+  "elapsed_ms": 10095.461,
+  "cases": [
+    {
+      "case_id": "sink-before-key-0",
+      "scenario": {
+        "boundary": "before-key",
+        "seed": 20261009,
+        "repetition": 0
+      },
+      "processes": [
+        {
+          "attempt": 1,
+          "returncode": 86,
+          "stderr": ""
+        },
+        {
+          "attempt": 2,
+          "returncode": 0,
+          "stderr": ""
+        }
+      ],
+      "control": [
+        {
+          "seq": 1,
+          "kind": "worker_started",
+          "attempt": 1,
+          "pid": 13336,
+          "detail": null
+        },
+        {
+          "seq": 2,
+          "kind": "crash_injected",
+          "attempt": 1,
+          "pid": 13336,
+          "detail": {
+            "boundary": "before-key"
+          }
+        },
+        {
+          "seq": 3,
+          "kind": "worker_started",
+          "attempt": 2,
+          "pid": 30700,
+          "detail": null
+        }
+      ],
+      "before_resume": {
+        "effects": [],
+        "keys": [],
+        "events": []
+      },
+      "after_resume": {
+        "effects": [
+          {
+            "effect_id": 1,
+            "operation_id": "909c9f93bc9ad2c1ac15c498",
+            "payload_sha256": "0f5a6c4a17f6dfc0467e55500da2bf890af609eecd8549c31185fac482e3d987",
+            "attempt": 2,
+            "request_key": "909c9f93bc9ad2c1ac15c498"
+          }
+        ],
+        "keys": [
+          {
+            "request_key": "909c9f93bc9ad2c1ac15c498",
+            "payload_sha256": "0f5a6c4a17f6dfc0467e55500da2bf890af609eecd8549c31185fac482e3d987",
+            "effect_id": 1
+          }
+        ],
+        "events": [
+          {
+            "seq": 1,
+            "kind": "effect_committed",
+            "attempt": 2,
+            "detail": {
+              "effect_id": 1
+            }
+          }
+        ]
+      },
+      "result": {
+        "effect_id": 1,
+        "operation_id": "909c9f93bc9ad2c1ac15c498",
+        "payload_sha256": "0f5a6c4a17f6dfc0467e55500da2bf890af609eecd8549c31185fac482e3d987"
+      },
+      "findings": [],
+      "status": "safe",
+      "expected_status": "safe",
+      "expectation_matched": true,
+      "completion_only_safe": true
+    },
+    {
+      "case_id": "sink-before-key-1",
+      "scenario": {
+        "boundary": "before-key",
+        "seed": 20261009,
+        "repetition": 1
+      },
+      "processes": [
+        {
+          "attempt": 1,
+          "returncode": 86,
+          "stderr": ""
+        },
+        {
+          "attempt": 2,
+          "returncode": 0,
+          "stderr": ""
+        }
+      ],
+      "control": [
+        {
+          "seq": 1,
+          "kind": "worker_started",
+          "attempt": 1,
+          "pid": 30888,
+          "detail": null
+        },
+        {
+          "seq": 2,
+          "kind": "crash_injected",
+          "attempt": 1,
+          "pid": 30888,
+          "detail": {
+            "boundary": "before-key"
+          }
+        },
+        {
+          "seq": 3,
+          "kind": "worker_started",
+          "attempt": 2,
+          "pid": 28528,
+          "detail": null
+        }
+      ],
+      "before_resume": {
+        "effects": [],
+        "keys": [],
+        "events": []
+      },
+      "after_resume": {
+        "effects": [
+          {
+            "effect_id": 1,
+            "operation_id": "7a84ebae54c8066a6e1a7d57",
+            "payload_sha256": "af8e268d59f35a70e0c938532e3cd48ca785e992a4314dd596bc8d614cf4e03e",
+            "attempt": 2,
+            "request_key": "7a84ebae54c8066a6e1a7d57"
+          }
+        ],
+        "keys": [
+          {
+            "request_key": "7a84ebae54c8066a6e1a7d57",
+            "payload_sha256": "af8e268d59f35a70e0c938532e3cd48ca785e992a4314dd596bc8d614cf4e03e",
+            "effect_id": 1
+          }
+        ],
+        "events": [
+          {
+            "seq": 1,
+            "kind": "effect_committed",
+            "attempt": 2,
+            "detail": {
+              "effect_id": 1
+            }
+          }
+        ]
+      },
+      "result": {
+        "effect_id": 1,
+        "operation_id": "7a84ebae54c8066a6e1a7d57",
+        "payload_sha256": "af8e268d59f35a70e0c938532e3cd48ca785e992a4314dd596bc8d614cf4e03e"
+      },
+      "findings": [],
+      "status": "safe",
+      "expected_status": "safe",
+      "expectation_matched": true,
+      "completion_only_safe": true
+    },
+    {
+      "case_id": "sink-before-key-2",
+      "scenario": {
+        "boundary": "before-key",
+        "seed": 20261009,
+        "repetition": 2
+      },
+      "processes": [
+        {
+          "attempt": 1,
+          "returncode": 86,
+          "stderr": ""
+        },
+        {
+          "attempt": 2,
+          "returncode": 0,
+          "stderr": ""
+        }
+      ],
+      "control": [
+        {
+          "seq": 1,
+          "kind": "worker_started",
+          "attempt": 1,
+          "pid": 26036,
+          "detail": null
+        },
+        {
+          "seq": 2,
+          "kind": "crash_injected",
+          "attempt": 1,
+          "pid": 26036,
+          "detail": {
+            "boundary": "before-key"
+          }
+        },
+        {
+          "seq": 3,
+          "kind": "worker_started",
+          "attempt": 2,
+          "pid": 31056,
+          "detail": null
+        }
+      ],
+      "before_resume": {
+        "effects": [],
+        "keys": [],
+        "events": []
+      },
+      "after_resume": {
+        "effects": [
+          {
+            "effect_id": 1,
+            "operation_id": "7b4dedf20182e66af996f3b4",
+            "payload_sha256": "c5def7d7dd941181dbf5b1a0d98fab1f72563fdb1a81dd5e70c9077bd7e3d7be",
+            "attempt": 2,
+            "request_key": "7b4dedf20182e66af996f3b4"
+          }
+        ],
+        "keys": [
+          {
+            "request_key": "7b4dedf20182e66af996f3b4",
+            "payload_sha256": "c5def7d7dd941181dbf5b1a0d98fab1f72563fdb1a81dd5e70c9077bd7e3d7be",
+            "effect_id": 1
+          }
+        ],
+        "events": [
+          {
+            "seq": 1,
+            "kind": "effect_committed",
+            "attempt": 2,
+            "detail": {
+              "effect_id": 1
+            }
+          }
+        ]
+      },
+      "result": {
+        "effect_id": 1,
+        "operation_id": "7b4dedf20182e66af996f3b4",
+        "payload_sha256": "c5def7d7dd941181dbf5b1a0d98fab1f72563fdb1a81dd5e70c9077bd7e3d7be"
+      },
+      "findings": [],
+      "status": "safe",
+      "expected_status": "safe",
+      "expectation_matched": true,
+      "completion_only_safe": true
+    },
+    {
+      "case_id": "sink-after-key-0",
+      "scenario": {
+        "boundary": "after-key",
+        "seed": 20261009,
+        "repetition": 0
+      },
+      "processes": [
+        {
+          "attempt": 1,
+          "returncode": 86,
+          "stderr": ""
+        },
+        {
+          "attempt": 2,
+          "returncode": 0,
+          "stderr": ""
+        }
+      ],
+      "control": [
+        {
+          "seq": 1,
+          "kind": "worker_started",
+          "attempt": 1,
+          "pid": 22632,
+          "detail": null
+        },
+        {
+          "seq": 2,
+          "kind": "crash_injected",
+          "attempt": 1,
+          "pid": 22632,
+          "detail": {
+            "boundary": "after-key"
+          }
+        },
+        {
+          "seq": 3,
+          "kind": "worker_started",
+          "attempt": 2,
+          "pid": 25956,
+          "detail": null
+        }
+      ],
+      "before_resume": {
+        "effects": [],
+        "keys": [],
+        "events": []
+      },
+      "after_resume": {
+        "effects": [
+          {
+            "effect_id": 1,
+            "operation_id": "8385fdf782f753e93df74028",
+            "payload_sha256": "f81471aa1143d225fd71b2e4b7941416c3601c7305317e8a58f3626e482d9918",
+            "attempt": 2,
+            "request_key": "8385fdf782f753e93df74028"
+          }
+        ],
+        "keys": [
+          {
+            "request_key": "8385fdf782f753e93df74028",
+            "payload_sha256": "f81471aa1143d225fd71b2e4b7941416c3601c7305317e8a58f3626e482d9918",
+            "effect_id": 1
+          }
+        ],
+        "events": [
+          {
+            "seq": 1,
+            "kind": "effect_committed",
+            "attempt": 2,
+            "detail": {
+              "effect_id": 1
+            }
+          }
+        ]
+      },
+      "result": {
+        "effect_id": 1,
+        "operation_id": "8385fdf782f753e93df74028",
+        "payload_sha256": "f81471aa1143d225fd71b2e4b7941416c3601c7305317e8a58f3626e482d9918"
+      },
+      "findings": [],
+      "status": "safe",
+      "expected_status": "safe",
+      "expectation_matched": true,
+      "completion_only_safe": true
+    },
+    {
+      "case_id": "sink-after-key-1",
+      "scenario": {
+        "boundary": "after-key",
+        "seed": 20261009,
+        "repetition": 1
+      },
+      "processes": [
+        {
+          "attempt": 1,
+          "returncode": 86,
+          "stderr": ""
+        },
+        {
+          "attempt": 2,
+          "returncode": 0,
+          "stderr": ""
+        }
+      ],
+      "control": [
+        {
+          "seq": 1,
+          "kind": "worker_started",
+          "attempt": 1,
+          "pid": 21112,
+          "detail": null
+        },
+        {
+          "seq": 2,
+          "kind": "crash_injected",
+          "attempt": 1,
+          "pid": 21112,
+          "detail": {
+            "boundary": "after-key"
+          }
+        },
+        {
+          "seq": 3,
+          "kind": "worker_started",
+          "attempt": 2,
+          "pid": 13164,
+          "detail": null
+        }
+      ],
+      "before_resume": {
+        "effects": [],
+        "keys": [],
+        "events": []
+      },
+      "after_resume": {
+        "effects": [
+          {
+            "effect_id": 1,
+            "operation_id": "5bb4239742e90f2ad375c105",
+            "payload_sha256": "c18e451b9296c70758d8420af35fee12e426aca4853528aa5ae373bec31668b8",
+            "attempt": 2,
+            "request_key": "5bb4239742e90f2ad375c105"
+          }
+        ],
+        "keys": [
+          {
+            "request_key": "5bb4239742e90f2ad375c105",
+            "payload_sha256": "c18e451b9296c70758d8420af35fee12e426aca4853528aa5ae373bec31668b8",
+            "effect_id": 1
+          }
+        ],
+        "events": [
+          {
+            "seq": 1,
+            "kind": "effect_committed",
+            "attempt": 2,
+            "detail": {
+              "effect_id": 1
+            }
+          }
+        ]
+      },
+      "result": {
+        "effect_id": 1,
+        "operation_id": "5bb4239742e90f2ad375c105",
+        "payload_sha256": "c18e451b9296c70758d8420af35fee12e426aca4853528aa5ae373bec31668b8"
+      },
+      "findings": [],
+      "status": "safe",
+      "expected_status": "safe",
+      "expectation_matched": true,
+      "completion_only_safe": true
+    },
+    {
+      "case_id": "sink-after-key-2",
+      "scenario": {
+        "boundary": "after-key",
+        "seed": 20261009,
+        "repetition": 2
+      },
+      "processes": [
+        {
+          "attempt": 1,
+          "returncode": 86,
+          "stderr": ""
+        },
+        {
+          "attempt": 2,
+          "returncode": 0,
+          "stderr": ""
+        }
+      ],
+      "control": [
+        {
+          "seq": 1,
+          "kind": "worker_started",
+          "attempt": 1,
+          "pid": 30452,
+          "detail": null
+        },
+        {
+          "seq": 2,
+          "kind": "crash_injected",
+          "attempt": 1,
+          "pid": 30452,
+          "detail": {
+            "boundary": "after-key"
+          }
+        },
+        {
+          "seq": 3,
+          "kind": "worker_started",
+          "attempt": 2,
+          "pid": 31864,
+          "detail": null
+        }
+      ],
+      "before_resume": {
+        "effects": [],
+        "keys": [],
+        "events": []
+      },
+      "after_resume": {
+        "effects": [
+          {
+            "effect_id": 1,
+            "operation_id": "e2c58958bf87a3ac27a7e699",
+            "payload_sha256": "046db4992065a383e88c37c3a9b8c967c82f628b46cb769aa8bbd2d59795b63c",
+            "attempt": 2,
+            "request_key": "e2c58958bf87a3ac27a7e699"
+          }
+        ],
+        "keys": [
+          {
+            "request_key": "e2c58958bf87a3ac27a7e699",
+            "payload_sha256": "046db4992065a383e88c37c3a9b8c967c82f628b46cb769aa8bbd2d59795b63c",
+            "effect_id": 1
+          }
+        ],
+        "events": [
+          {
+            "seq": 1,
+            "kind": "effect_committed",
+            "attempt": 2,
+            "detail": {
+              "effect_id": 1
+            }
+          }
+        ]
+      },
+      "result": {
+        "effect_id": 1,
+        "operation_id": "e2c58958bf87a3ac27a7e699",
+        "payload_sha256": "046db4992065a383e88c37c3a9b8c967c82f628b46cb769aa8bbd2d59795b63c"
+      },
+      "findings": [],
+      "status": "safe",
+      "expected_status": "safe",
+      "expectation_matched": true,
+      "completion_only_safe": true
+    },
+    {
+      "case_id": "sink-after-commit-0",
+      "scenario": {
+        "boundary": "after-commit",
+        "seed": 20261009,
+        "repetition": 0
+      },
+      "processes": [
+        {
+          "attempt": 1,
+          "returncode": 86,
+          "stderr": ""
+        },
+        {
+          "attempt": 2,
+          "returncode": 0,
+          "stderr": ""
+        }
+      ],
+      "control": [
+        {
+          "seq": 1,
+          "kind": "worker_started",
+          "attempt": 1,
+          "pid": 21092,
+          "detail": null
+        },
+        {
+          "seq": 2,
+          "kind": "crash_injected",
+          "attempt": 1,
+          "pid": 21092,
+          "detail": {
+            "boundary": "after-commit"
+          }
+        },
+        {
+          "seq": 3,
+          "kind": "worker_started",
+          "attempt": 2,
+          "pid": 25660,
+          "detail": null
+        }
+      ],
+      "before_resume": {
+        "effects": [
+          {
+            "effect_id": 1,
+            "operation_id": "045019529d54d0d22aa15ee2",
+            "payload_sha256": "e715b3923e9c41328b0f21f9ff0397e93ee4d91ba3b6429f57ec31f95f0ebf2f",
+            "attempt": 1,
+            "request_key": "045019529d54d0d22aa15ee2"
+          }
+        ],
+        "keys": [
+          {
+            "request_key": "045019529d54d0d22aa15ee2",
+            "payload_sha256": "e715b3923e9c41328b0f21f9ff0397e93ee4d91ba3b6429f57ec31f95f0ebf2f",
+            "effect_id": 1
+          }
+        ],
+        "events": [
+          {
+            "seq": 1,
+            "kind": "effect_committed",
+            "attempt": 1,
+            "detail": {
+              "effect_id": 1
+            }
+          }
+        ]
+      },
+      "after_resume": {
+        "effects": [
+          {
+            "effect_id": 1,
+            "operation_id": "045019529d54d0d22aa15ee2",
+            "payload_sha256": "e715b3923e9c41328b0f21f9ff0397e93ee4d91ba3b6429f57ec31f95f0ebf2f",
+            "attempt": 1,
+            "request_key": "045019529d54d0d22aa15ee2"
+          }
+        ],
+        "keys": [
+          {
+            "request_key": "045019529d54d0d22aa15ee2",
+            "payload_sha256": "e715b3923e9c41328b0f21f9ff0397e93ee4d91ba3b6429f57ec31f95f0ebf2f",
+            "effect_id": 1
+          }
+        ],
+        "events": [
+          {
+            "seq": 1,
+            "kind": "effect_committed",
+            "attempt": 1,
+            "detail": {
+              "effect_id": 1
+            }
+          },
+          {
+            "seq": 2,
+            "kind": "effect_reused",
+            "attempt": 2,
+            "detail": {
+              "effect_id": 1
+            }
+          }
+        ]
+      },
+      "result": {
+        "effect_id": 1,
+        "operation_id": "045019529d54d0d22aa15ee2",
+        "payload_sha256": "e715b3923e9c41328b0f21f9ff0397e93ee4d91ba3b6429f57ec31f95f0ebf2f"
+      },
+      "findings": [],
+      "status": "safe",
+      "expected_status": "safe",
+      "expectation_matched": true,
+      "completion_only_safe": true
+    },
+    {
+      "case_id": "sink-after-commit-1",
+      "scenario": {
+        "boundary": "after-commit",
+        "seed": 20261009,
+        "repetition": 1
+      },
+      "processes": [
+        {
+          "attempt": 1,
+          "returncode": 86,
+          "stderr": ""
+        },
+        {
+          "attempt": 2,
+          "returncode": 0,
+          "stderr": ""
+        }
+      ],
+      "control": [
+        {
+          "seq": 1,
+          "kind": "worker_started",
+          "attempt": 1,
+          "pid": 23964,
+          "detail": null
+        },
+        {
+          "seq": 2,
+          "kind": "crash_injected",
+          "attempt": 1,
+          "pid": 23964,
+          "detail": {
+            "boundary": "after-commit"
+          }
+        },
+        {
+          "seq": 3,
+          "kind": "worker_started",
+          "attempt": 2,
+          "pid": 24952,
+          "detail": null
+        }
+      ],
+      "before_resume": {
+        "effects": [
+          {
+            "effect_id": 1,
+            "operation_id": "52e72082b1285442f82f7c00",
+            "payload_sha256": "0a504232bcd9aa3ffd4bbd2b19075f4f0834b09aab6c52f2bbbb152d599408a3",
+            "attempt": 1,
+            "request_key": "52e72082b1285442f82f7c00"
+          }
+        ],
+        "keys": [
+          {
+            "request_key": "52e72082b1285442f82f7c00",
+            "payload_sha256": "0a504232bcd9aa3ffd4bbd2b19075f4f0834b09aab6c52f2bbbb152d599408a3",
+            "effect_id": 1
+          }
+        ],
+        "events": [
+          {
+            "seq": 1,
+            "kind": "effect_committed",
+            "attempt": 1,
+            "detail": {
+              "effect_id": 1
+            }
+          }
+        ]
+      },
+      "after_resume": {
+        "effects": [
+          {
+            "effect_id": 1,
+            "operation_id": "52e72082b1285442f82f7c00",
+            "payload_sha256": "0a504232bcd9aa3ffd4bbd2b19075f4f0834b09aab6c52f2bbbb152d599408a3",
+            "attempt": 1,
+            "request_key": "52e72082b1285442f82f7c00"
+          }
+        ],
+        "keys": [
+          {
+            "request_key": "52e72082b1285442f82f7c00",
+            "payload_sha256": "0a504232bcd9aa3ffd4bbd2b19075f4f0834b09aab6c52f2bbbb152d599408a3",
+            "effect_id": 1
+          }
+        ],
+        "events": [
+          {
+            "seq": 1,
+            "kind": "effect_committed",
+            "attempt": 1,
+            "detail": {
+              "effect_id": 1
+            }
+          },
+          {
+            "seq": 2,
+            "kind": "effect_reused",
+            "attempt": 2,
+            "detail": {
+              "effect_id": 1
+            }
+          }
+        ]
+      },
+      "result": {
+        "effect_id": 1,
+        "operation_id": "52e72082b1285442f82f7c00",
+        "payload_sha256": "0a504232bcd9aa3ffd4bbd2b19075f4f0834b09aab6c52f2bbbb152d599408a3"
+      },
+      "findings": [],
+      "status": "safe",
+      "expected_status": "safe",
+      "expectation_matched": true,
+      "completion_only_safe": true
+    },
+    {
+      "case_id": "sink-after-commit-2",
+      "scenario": {
+        "boundary": "after-commit",
+        "seed": 20261009,
+        "repetition": 2
+      },
+      "processes": [
+        {
+          "attempt": 1,
+          "returncode": 86,
+          "stderr": ""
+        },
+        {
+          "attempt": 2,
+          "returncode": 0,
+          "stderr": ""
+        }
+      ],
+      "control": [
+        {
+          "seq": 1,
+          "kind": "worker_started",
+          "attempt": 1,
+          "pid": 16524,
+          "detail": null
+        },
+        {
+          "seq": 2,
+          "kind": "crash_injected",
+          "attempt": 1,
+          "pid": 16524,
+          "detail": {
+            "boundary": "after-commit"
+          }
+        },
+        {
+          "seq": 3,
+          "kind": "worker_started",
+          "attempt": 2,
+          "pid": 29144,
+          "detail": null
+        }
+      ],
+      "before_resume": {
+        "effects": [
+          {
+            "effect_id": 1,
+            "operation_id": "cdc0f781ed5f9494d9139dc5",
+            "payload_sha256": "619064f3417c5938a6ba1329d7dfb8c0cc45556d7091507901d6a6d3f31cd7cb",
+            "attempt": 1,
+            "request_key": "cdc0f781ed5f9494d9139dc5"
+          }
+        ],
+        "keys": [
+          {
+            "request_key": "cdc0f781ed5f9494d9139dc5",
+            "payload_sha256": "619064f3417c5938a6ba1329d7dfb8c0cc45556d7091507901d6a6d3f31cd7cb",
+            "effect_id": 1
+          }
+        ],
+        "events": [
+          {
+            "seq": 1,
+            "kind": "effect_committed",
+            "attempt": 1,
+            "detail": {
+              "effect_id": 1
+            }
+          }
+        ]
+      },
+      "after_resume": {
+        "effects": [
+          {
+            "effect_id": 1,
+            "operation_id": "cdc0f781ed5f9494d9139dc5",
+            "payload_sha256": "619064f3417c5938a6ba1329d7dfb8c0cc45556d7091507901d6a6d3f31cd7cb",
+            "attempt": 1,
+            "request_key": "cdc0f781ed5f9494d9139dc5"
+          }
+        ],
+        "keys": [
+          {
+            "request_key": "cdc0f781ed5f9494d9139dc5",
+            "payload_sha256": "619064f3417c5938a6ba1329d7dfb8c0cc45556d7091507901d6a6d3f31cd7cb",
+            "effect_id": 1
+          }
+        ],
+        "events": [
+          {
+            "seq": 1,
+            "kind": "effect_committed",
+            "attempt": 1,
+            "detail": {
+              "effect_id": 1
+            }
+          },
+          {
+            "seq": 2,
+            "kind": "effect_reused",
+            "attempt": 2,
+            "detail": {
+              "effect_id": 1
+            }
+          }
+        ]
+      },
+      "result": {
+        "effect_id": 1,
+        "operation_id": "cdc0f781ed5f9494d9139dc5",
+        "payload_sha256": "619064f3417c5938a6ba1329d7dfb8c0cc45556d7091507901d6a6d3f31cd7cb"
+      },
+      "findings": [],
+      "status": "safe",
+      "expected_status": "safe",
+      "expectation_matched": true,
+      "completion_only_safe": true
+    },
+    {
+      "case_id": "sink-split-commit-0",
+      "scenario": {
+        "boundary": "split-commit",
+        "seed": 20261009,
+        "repetition": 0
+      },
+      "processes": [
+        {
+          "attempt": 1,
+          "returncode": 86,
+          "stderr": ""
+        },
+        {
+          "attempt": 2,
+          "returncode": 0,
+          "stderr": ""
+        }
+      ],
+      "control": [
+        {
+          "seq": 1,
+          "kind": "worker_started",
+          "attempt": 1,
+          "pid": 31308,
+          "detail": null
+        },
+        {
+          "seq": 2,
+          "kind": "crash_injected",
+          "attempt": 1,
+          "pid": 31308,
+          "detail": {
+            "boundary": "split-commit"
+          }
+        },
+        {
+          "seq": 3,
+          "kind": "worker_started",
+          "attempt": 2,
+          "pid": 22364,
+          "detail": null
+        }
+      ],
+      "before_resume": {
+        "effects": [
+          {
+            "effect_id": 1,
+            "operation_id": "0b53734edd369da7ec1baacc",
+            "payload_sha256": "ee71dc4210f7ab3b4e573cca7f01ae921612f12e3fa0b1c58053e6bab7bccd60",
+            "attempt": 1,
+            "request_key": "0b53734edd369da7ec1baacc"
+          }
+        ],
+        "keys": [],
+        "events": []
+      },
+      "after_resume": {
+        "effects": [
+          {
+            "effect_id": 1,
+            "operation_id": "0b53734edd369da7ec1baacc",
+            "payload_sha256": "ee71dc4210f7ab3b4e573cca7f01ae921612f12e3fa0b1c58053e6bab7bccd60",
+            "attempt": 1,
+            "request_key": "0b53734edd369da7ec1baacc"
+          },
+          {
+            "effect_id": 2,
+            "operation_id": "0b53734edd369da7ec1baacc",
+            "payload_sha256": "ee71dc4210f7ab3b4e573cca7f01ae921612f12e3fa0b1c58053e6bab7bccd60",
+            "attempt": 2,
+            "request_key": "0b53734edd369da7ec1baacc"
+          }
+        ],
+        "keys": [
+          {
+            "request_key": "0b53734edd369da7ec1baacc",
+            "payload_sha256": "ee71dc4210f7ab3b4e573cca7f01ae921612f12e3fa0b1c58053e6bab7bccd60",
+            "effect_id": 2
+          }
+        ],
+        "events": []
+      },
+      "result": {
+        "effect_id": 2,
+        "operation_id": "0b53734edd369da7ec1baacc",
+        "payload_sha256": "ee71dc4210f7ab3b4e573cca7f01ae921612f12e3fa0b1c58053e6bab7bccd60"
+      },
+      "findings": [
+        "EFFECT_COUNT_VIOLATION"
+      ],
+      "status": "unsafe",
+      "expected_status": "unsafe",
+      "expectation_matched": true,
+      "completion_only_safe": true
+    },
+    {
+      "case_id": "sink-split-commit-1",
+      "scenario": {
+        "boundary": "split-commit",
+        "seed": 20261009,
+        "repetition": 1
+      },
+      "processes": [
+        {
+          "attempt": 1,
+          "returncode": 86,
+          "stderr": ""
+        },
+        {
+          "attempt": 2,
+          "returncode": 0,
+          "stderr": ""
+        }
+      ],
+      "control": [
+        {
+          "seq": 1,
+          "kind": "worker_started",
+          "attempt": 1,
+          "pid": 18976,
+          "detail": null
+        },
+        {
+          "seq": 2,
+          "kind": "crash_injected",
+          "attempt": 1,
+          "pid": 18976,
+          "detail": {
+            "boundary": "split-commit"
+          }
+        },
+        {
+          "seq": 3,
+          "kind": "worker_started",
+          "attempt": 2,
+          "pid": 19516,
+          "detail": null
+        }
+      ],
+      "before_resume": {
+        "effects": [
+          {
+            "effect_id": 1,
+            "operation_id": "62dc129e6ddd705fb90195cc",
+            "payload_sha256": "851faf59bbf8c0606c5b407a44587be831123273ff4ad25b3a500aed2654dbbb",
+            "attempt": 1,
+            "request_key": "62dc129e6ddd705fb90195cc"
+          }
+        ],
+        "keys": [],
+        "events": []
+      },
+      "after_resume": {
+        "effects": [
+          {
+            "effect_id": 1,
+            "operation_id": "62dc129e6ddd705fb90195cc",
+            "payload_sha256": "851faf59bbf8c0606c5b407a44587be831123273ff4ad25b3a500aed2654dbbb",
+            "attempt": 1,
+            "request_key": "62dc129e6ddd705fb90195cc"
+          },
+          {
+            "effect_id": 2,
+            "operation_id": "62dc129e6ddd705fb90195cc",
+            "payload_sha256": "851faf59bbf8c0606c5b407a44587be831123273ff4ad25b3a500aed2654dbbb",
+            "attempt": 2,
+            "request_key": "62dc129e6ddd705fb90195cc"
+          }
+        ],
+        "keys": [
+          {
+            "request_key": "62dc129e6ddd705fb90195cc",
+            "payload_sha256": "851faf59bbf8c0606c5b407a44587be831123273ff4ad25b3a500aed2654dbbb",
+            "effect_id": 2
+          }
+        ],
+        "events": []
+      },
+      "result": {
+        "effect_id": 2,
+        "operation_id": "62dc129e6ddd705fb90195cc",
+        "payload_sha256": "851faf59bbf8c0606c5b407a44587be831123273ff4ad25b3a500aed2654dbbb"
+      },
+      "findings": [
+        "EFFECT_COUNT_VIOLATION"
+      ],
+      "status": "unsafe",
+      "expected_status": "unsafe",
+      "expectation_matched": true,
+      "completion_only_safe": true
+    },
+    {
+      "case_id": "sink-split-commit-2",
+      "scenario": {
+        "boundary": "split-commit",
+        "seed": 20261009,
+        "repetition": 2
+      },
+      "processes": [
+        {
+          "attempt": 1,
+          "returncode": 86,
+          "stderr": ""
+        },
+        {
+          "attempt": 2,
+          "returncode": 0,
+          "stderr": ""
+        }
+      ],
+      "control": [
+        {
+          "seq": 1,
+          "kind": "worker_started",
+          "attempt": 1,
+          "pid": 20508,
+          "detail": null
+        },
+        {
+          "seq": 2,
+          "kind": "crash_injected",
+          "attempt": 1,
+          "pid": 20508,
+          "detail": {
+            "boundary": "split-commit"
+          }
+        },
+        {
+          "seq": 3,
+          "kind": "worker_started",
+          "attempt": 2,
+          "pid": 29288,
+          "detail": null
+        }
+      ],
+      "before_resume": {
+        "effects": [
+          {
+            "effect_id": 1,
+            "operation_id": "7ae18c24b86a5a63ace6c910",
+            "payload_sha256": "ffa2e99c2c8a9a5f0ad98e61c997a2120e3842947a2c7871c05e2fed76073e4d",
+            "attempt": 1,
+            "request_key": "7ae18c24b86a5a63ace6c910"
+          }
+        ],
+        "keys": [],
+        "events": []
+      },
+      "after_resume": {
+        "effects": [
+          {
+            "effect_id": 1,
+            "operation_id": "7ae18c24b86a5a63ace6c910",
+            "payload_sha256": "ffa2e99c2c8a9a5f0ad98e61c997a2120e3842947a2c7871c05e2fed76073e4d",
+            "attempt": 1,
+            "request_key": "7ae18c24b86a5a63ace6c910"
+          },
+          {
+            "effect_id": 2,
+            "operation_id": "7ae18c24b86a5a63ace6c910",
+            "payload_sha256": "ffa2e99c2c8a9a5f0ad98e61c997a2120e3842947a2c7871c05e2fed76073e4d",
+            "attempt": 2,
+            "request_key": "7ae18c24b86a5a63ace6c910"
+          }
+        ],
+        "keys": [
+          {
+            "request_key": "7ae18c24b86a5a63ace6c910",
+            "payload_sha256": "ffa2e99c2c8a9a5f0ad98e61c997a2120e3842947a2c7871c05e2fed76073e4d",
+            "effect_id": 2
+          }
+        ],
+        "events": []
+      },
+      "result": {
+        "effect_id": 2,
+        "operation_id": "7ae18c24b86a5a63ace6c910",
+        "payload_sha256": "ffa2e99c2c8a9a5f0ad98e61c997a2120e3842947a2c7871c05e2fed76073e4d"
+      },
+      "findings": [
+        "EFFECT_COUNT_VIOLATION"
+      ],
+      "status": "unsafe",
+      "expected_status": "unsafe",
+      "expectation_matched": true,
+      "completion_only_safe": true
+    }
+  ],
+  "summary": {
+    "cases": 12,
+    "safe": 9,
+    "unsafe": 3,
+    "inconclusive": 0,
+    "completion_only_false_safe": 3,
+    "expectation_matches": 12
+  }
+}

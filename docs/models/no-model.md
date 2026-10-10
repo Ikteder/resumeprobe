@@ -16,3 +16,6 @@ quality, prompt injection evaluation, provider reliability rankings, or financia
 Version 0.2 uses only local standard-library HTTP sockets and synthetic effect requests.
 Commercial documentation is evidence for failure contracts, not a live-provider test.
 The replay matrix called no Stripe, PayPal, AWS, model, or paid endpoint. USD 0.00.
+
+Version0.3 transaction conformance also uses only Python/SQLite subprocesses and
+synthetic receipts. No training, inference, hosted tracing, model quality, or paid API.

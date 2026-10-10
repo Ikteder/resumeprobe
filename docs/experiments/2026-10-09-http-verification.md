@@ -59,4 +59,10 @@ Source and wheel built successfully. A clean wheel installation with no dependen
 matched all five HTTP cases (two safe, three deliberately unsafe) and all fifteen reference
 cases (thirteen safe, two deliberately unsafe), with no inconclusive outcomes. Dependency
 consistency passed. Final commit and 0.2 public CI are recorded after publication;
-the earlier six-job CI passed the published 0.1 code.
+the earlier six-job CI passed the published 0.1 code. Version 0.2 source `e41777c`, workflow
+`fda494e`, and merge `6e5fd64d9dd6ad46d9dc5f40904fb58c13b6f3c6` are public.
+Run https://github.com/Ikteder/resumeprobe/actions/runs/38014252072 passed all six
+Ubuntu/Windows Python 3.11/3.12/3.14 jobs, including the new HTTP matrix. A workflow-only
+run started before the source push was canceled and is not passing evidence. No history
+was force-pushed or rewritten. Vulnerability audit found no known dependency issues;
+the unpublished local package itself was skipped by the PyPI audit.

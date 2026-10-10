@@ -2,6 +2,8 @@ from __future__ import annotations
 
 import json
 import sqlite3
+from collections.abc import Iterator
+from contextlib import contextmanager
 from pathlib import Path
 
 from resumeprobe.contracts import canonical, digest
@@ -31,11 +33,19 @@ class EffectSink:
                 """
             )
 
-    def connect(self) -> sqlite3.Connection:
+    @contextmanager
+    def connect(self) -> Iterator[sqlite3.Connection]:
         db = sqlite3.connect(self.path, timeout=10)
-        db.execute("PRAGMA synchronous=FULL")
-        db.execute("PRAGMA foreign_keys=ON")
-        return db
+        try:
+            db.execute("PRAGMA synchronous=FULL")
+            db.execute("PRAGMA foreign_keys=ON")
+            with db:
+                yield db
+        finally:
+            db.close()
+
+    def _observe(self, boundary: str) -> None:
+        """Internal fault-observation seam; no behavior in normal tool operation."""
 
     @staticmethod
     def _event(db: sqlite3.Connection, kind: str, attempt: int, detail: object) -> None:
@@ -84,11 +94,14 @@ class EffectSink:
                     "VALUES(?,?,?,?)",
                     (operation_id, payload_sha256, attempt, request_key),
                 ).lastrowid
+                self._observe("before-key")
                 if request_key is not None:
                     db.execute(
                         "INSERT INTO keys VALUES(?,?,?)", (request_key, payload_sha256, effect_id)
                     )
+                self._observe("after-key")
                 self._event(db, "effect_committed", attempt, {"effect_id": effect_id})
+        self._observe("after-commit")
         return {
             "effect_id": effect_id,
             "operation_id": operation_id,
@@ -106,9 +119,10 @@ class EffectSink:
         with self.connect() as db:
             db.row_factory = sqlite3.Row
             effects = [dict(row) for row in db.execute("SELECT * FROM effects ORDER BY effect_id")]
+            keys = [dict(row) for row in db.execute("SELECT * FROM keys ORDER BY request_key")]
             events = []
             for row in db.execute("SELECT * FROM events ORDER BY seq"):
                 event = dict(row)
                 event["detail"] = json.loads(event["detail"])
                 events.append(event)
-        return {"effects": effects, "events": events}
+        return {"effects": effects, "keys": keys, "events": events}
